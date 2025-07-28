@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,6 +15,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
       body {
         font-family: "Poppins", sans-serif;
@@ -37,234 +38,431 @@
     </style>
   </head>
   <body class="bg-black text-white">
-    <div class="relative min-h-screen overflow-hidden">
-      <div class="absolute inset-0 z-0">
-        <div
-          class="absolute top-1/2 left-1/2 w-[50vw] h-[50vh] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_farthest-side,rgba(29,78,216,0.15),rgba(255,255,255,0))] blur-3xl opacity-80"
-        ></div>
-
-        <div
-          class="absolute inset-0"
-          style="
-            background-image: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0.05) 1px,
-                transparent 1px
-              ),
-              linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0.05) 1px,
-                transparent 1px
-              );
-            background-size: 40px 40px;
-          "
-        ></div>
-      </div>
-
-      <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        <header class="py-6">
+    <div class="min-h-screen">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <header class="relative z-30 py-6">
           <nav class="flex justify-between items-center">
             <a href="#" class="text-xl font-bold text-white">My Portfolio</a>
 
             <div
               class="hidden lg:flex items-center space-x-8 text-slate-300 font-medium"
             >
-              <a href="#" class="hover:text-white">Home</a>
-              <a href="#" class="hover:text-white">Skills</a>
-              <a href="#" class="hover:text-white">Project</a>
-              <a href="#" class="hover:text-white">Contact</a>
-              <button class="ml-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                  />
-                </svg>
-              </button>
+              <a href="#home" class="hover:text-white">Home</a>
+              <a href="#skills" class="hover:text-white">Skills</a>
+              <a href="#projects" class="hover:text-white">Projects</a>
+              <a href="#contact" class="hover:text-white">Contact</a>
             </div>
 
             <div class="lg:hidden">
               <button id="menu-btn" class="text-white">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <i id="menu-icon" class="ri-menu-line text-2xl"></i>
               </button>
             </div>
           </nav>
           <div id="mobile-menu" class="hidden lg:hidden mt-4 bg-slate-900 rounded-lg">
             <a
-              href="#"
+              href="#home"
               class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
               >Home</a
             >
             <a
-              href="#"
+              href="#skills"
               class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
               >Skills</a
             >
             <a
-              href="#"
+              href="#projects"
               class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
-              >Project</a
+              >Projects</a
             >
             <a
-              href="#"
+              href="#contact"
               class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
               >Contact</a
             >
           </div>
         </header>
 
-        <main class="py-16 lg:py-24">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div class="lg:text-left text-center">
-              <h1
-                class="text-5xl md:text-6xl font-extrabold text-white leading-tight"
-              >
-                Hello
-              </h1>
-              <h1
-                class="text-5xl md:text-6xl font-extrabold text-white leading-tight"
-              >
-                I'm Arafat Nill
-              </h1>
-              <p class="mt-2 text-2xl md:text-3xl font-semibold text-slate-300">
-                Pixel Composer of Interfaces
-              </p>
-              <p class="mt-6 text-base text-slate-400 max-w-lg mx-auto lg:mx-0">
-                I craft user interfaces with the spirit of poetry and logic.
-                Bringing designs into forms you can feel on screen.
-              </p>
+        <main id="home" class="relative overflow-hidden py-16 lg:py-24 h-[80vh]">
+          <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/2 left-1/2 w-[60vw] h-[60vh] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_farthest-side,rgba(29,78,216,0.15),rgba(255,255,255,0))] blur-3xl"></div>
+            <div class="absolute inset-0" style="background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 40px 40px;"></div>
+          </div>
+          
+          <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="lg:text-left text-center" data-aos="fade-right">
+              <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">Hello</h1>
+              <h1 class="text-5xl md:text-6xl font-extrabold text-white leading-tight">I'm Arafat Nill</h1>
+              <p class="mt-2 text-2xl md:text-3xl font-semibold text-slate-300">Pixel Composer of Interfaces</p>
+              <p class="mt-6 text-base text-slate-400 max-w-lg mx-auto lg:mx-0">I craft user interfaces with the spirit of poetry and logic. Bringing designs into forms you can feel on screen.</p>
 
-              <div
-                class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
-              >
+              <div class="mt-8 flex items-center justify-center lg:justify-start space-x-4">
                 <p class="text-slate-300 font-medium">Follow me on:</p>
-                <a href="#" class="text-slate-400 hover:text-white">
-                  <i class="ri-github-fill text-2xl"></i>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white">
-                    <i class="ri-linkedin-box-fill text-2xl"></i>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white">
-                    <i class="ri-instagram-line text-2xl"></i>
-                </a>
-                <a href="#" class="text-slate-400 hover:text-white">
-                    <i class="ri-twitter-x-line text-2xl"></i>
-                </a>
+                <a href="#" class="text-slate-400 hover:text-white"><i class="ri-github-fill text-2xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i class="ri-linkedin-box-fill text-2xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i class="ri-instagram-line text-2xl"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i class="ri-twitter-x-line text-2xl"></i></a>
               </div>
 
-              <div
-                class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
-              >
-                <button
-                  class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
-                >
-                  <i class="ri-download-2-line mr-2"></i>
-                  Download CV
-                </button>
-                <button
-                  class="bg-transparent text-slate-200 px-6 py-3 rounded-lg font-semibold border border-slate-600 hover:bg-slate-800 transition duration-300 cursor-pointer"
-                >
+              <div class="mt-8 flex items-center justify-center lg:justify-start space-x-4">
+                <a href="#" class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer">
+                  <i class="ri-download-2-line mr-2"></i> Download CV
+                </a>
+                <a href="#contact" class="bg-transparent text-slate-200 px-6 py-3 rounded-lg font-semibold border border-slate-600 hover:bg-slate-800 transition duration-300 cursor-pointer">
                   Contact Me
-                </button>
-              </div>
-
-              <div class="mt-12 pt-8 border-t border-slate-800">
-                <div
-                  class="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-slate-400"
-                >
-                  <div class="flex items-center space-x-2">
-                    <i class="ri-briefcase-4-line text-slate-500"></i>
-                    <span>3+ Years of Experience</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <i class="ri-archive-drawer-line text-slate-500"></i>
-                    <span>20+ Projects Completed</span>
-                  </div>
-                  <div class="flex items-center space-x-2">
-                    <i class="ri-emotion-happy-line text-slate-500"></i>
-                    <span>10+ Happy Clients</span>
-                  </div>
-                </div>
+                </a>
               </div>
             </div>
 
-            <div
-              class="relative flex items-center justify-center order-first lg:order-last"
-            >
+            <div class="relative flex items-center justify-center order-first lg:order-last" data-aos="fade-left">
               <div class="relative w-72 h-72 lg:w-96 lg:h-96">
-                <img
-                  src="./assets/hero.jpg"
-                  alt="Profile picture of Arafat Nill"
-                  class="rounded-full w-full h-full object-cover shadow-lg border-8 border-slate-700"
-                />
-
-                <div
-                  class="float-icon absolute top-8 left-0 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.2s"
-                >
+                <img src="./assets/hero.jpg" alt="Profile picture of Arafat Nill" class="rounded-full w-full h-full object-cover shadow-lg border-8 border-slate-700" />
+                <div class="float-icon absolute top-8 left-0 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center" style="animation-delay: 0.2s">
                   <i class="ri-css3-fill text-blue-500 text-3xl"></i>
                 </div>
-
-                <div
-                  class="float-icon absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                >
+                <div class="float-icon absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center">
                   <i class="ri-html5-fill text-3xl text-red-500"></i>
                 </div>
-
-                <div
-                  class="float-icon absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.4s"
-                >
+                <div class="float-icon absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center" style="animation-delay: 0.4s">
                   <i class="ri-tailwind-css-fill text-blue-400 text-3xl"></i>
                 </div>
-
-                <div
-                  class="float-icon absolute bottom-8 left-4 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.6s"
-                >
+                <div class="float-icon absolute bottom-8 left-4 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center" style="animation-delay: 0.6s">
                   <i class="ri-javascript-fill text-yellow-400 text-3xl"></i>
                 </div>
-
-                <div
-                  class="float-icon absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                >
+                <div class="float-icon absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center">
                   <i class="ri-reactjs-fill text-cyan-400 text-3xl"></i>
                 </div>
               </div>
             </div>
           </div>
         </main>
+
+        <section id="skills" class="py-20 lg:py-32">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-white">
+              My Skills
+            </h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">
+              Here's a showcase of the tools and technologies I'm proficient
+              in, categorized for clarity.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          >
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:-translate-y-1 shadow-lg"
+               data-aos="fade-up" data-aos-delay="100"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-code-s-slash-line text-blue-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-white">
+                  Frontend Development
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">React</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Next.js</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">TypeScript</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Tailwind CSS</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">HTML5</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">CSS3</span>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-green-500 hover:-translate-y-1 shadow-lg"
+              data-aos="fade-up" data-aos-delay="200"
+            >
+              <div class="flex items-center mb-4">
+                <i class="ri-server-line text-green-400 text-2xl mr-3"></i>
+                <h3 class="text-xl font-bold text-white">
+                  Backend Development
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Node.js</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Python</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">PostgreSQL</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">MongoDB</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">REST APIs</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">GraphQL</span>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 shadow-lg"
+              data-aos="fade-up" data-aos-delay="300"
+            >
+              <div class="flex items-center mb-4">
+                <i class="ri-palette-line text-purple-400 text-2xl mr-3"></i>
+                <h3 class="text-xl font-bold text-white">UI/UX Design</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Figma</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Responsive Design</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Wireframing</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Prototyping</span>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-sky-500 hover:-translate-y-1 shadow-lg"
+              data-aos="fade-up" data-aos-delay="100"
+            >
+              <div class="flex items-center mb-4">
+                <i class="ri-cloud-line text-sky-400 text-2xl mr-3"></i>
+                <h3 class="text-xl font-bold text-white">Cloud & DevOps</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">AWS</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Docker</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">CI/CD</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Kubernetes</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Git</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Linux</span>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-orange-500 hover:-translate-y-1 shadow-lg"
+              data-aos="fade-up" data-aos-delay="200"
+            >
+              <div class="flex items-center mb-4">
+                <i class="ri-tools-line text-orange-400 text-2xl mr-3"></i>
+                <h3 class="text-xl font-bold text-white">
+                  Tools & Technologies
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">VS Code</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Jest</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Webpack</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Redux</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Firebase</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Vercel</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Vite</span>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-yellow-500 hover:-translate-y-1 shadow-lg"
+              data-aos="fade-up" data-aos-delay="300"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-pencil-ruler-2-line text-yellow-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-white">Creative Skills</h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">UI Animation</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">SVG Animation</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">3D Modeling</span>
+                <span class="bg-slate-800 text-slate-300 text-sm font-medium px-3 py-1 rounded-full">Motion Graphics</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="py-20 lg:py-32">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-white">
+              My Projects
+            </h2>
+            <p class="text-slate-400 mt-4">A selection of my recent work</p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              data-aos="fade-up" data-aos-delay="100"
+            >
+              <img
+                src="./assets/p1.png"
+                alt="Project 1"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">News & Magazine</h3>
+                <p class="text-slate-400 text-sm mb-4">
+                  A full-featured e-commerce site with product listings, cart,
+                  and payment integration.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs font-semibold bg-slate-800 text-cyan-400 py-1 px-2 rounded-full">React</span>
+                  <span class="text-xs font-semibold bg-slate-800 text-green-400 py-1 px-2 rounded-full">Node.js</span>
+                  <span class="text-xs font-semibold bg-slate-800 text-yellow-400 py-1 px-2 rounded-full">Express</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-github-fill mr-1"></i> Code</a>
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-external-link-line mr-1"></i> Live Demo</a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              data-aos="fade-up" data-aos-delay="200"
+            >
+              <img
+                src="./assets/p2.png"
+                alt="Project 2"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Academy - Online Course</h3>
+                <p class="text-slate-400 text-sm mb-4">
+                  A personal portfolio website to showcase skills and projects,
+                  built with a modern tech stack.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs font-semibold bg-slate-800 text-cyan-400 py-1 px-2 rounded-full">Next.js</span>
+                  <span class="text-xs font-semibold bg-slate-800 text-cyan-500 py-1 px-2 rounded-full">Tailwind CSS</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-github-fill mr-1"></i> Code</a>
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-external-link-line mr-1"></i> Live Demo</a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              data-aos="fade-up" data-aos-delay="300"
+            >
+              <img
+                src="./assets/p3.png"
+                alt="Project 3"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-2">Payment Project App</h3>
+                <p class="text-slate-400 text-sm mb-4">
+                  A web application for managing tasks with features like
+                  drag-and-drop and user authentication.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span class="text-xs font-semibold bg-slate-800 text-pink-500 py-1 px-2 rounded-full">Figma</span>
+                  <span class="text-xs font-semibold bg-slate-800 text-cyan-400 py-1 px-2 rounded-full">React</span>
+                  <span class="text-xs font-semibold bg-slate-800 text-green-400 py-1 px-2 rounded-full">MongoDB</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-github-fill mr-1"></i> Code</a>
+                  <a href="#" class="text-slate-300 hover:text-blue-500 transition-colors"><i class="ri-external-link-line mr-1"></i> Live Demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="py-20 lg:py-32" data-aos="fade-up">
+          <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div class="lg:pr-8">
+              <h2 class="text-3xl lg:text-4xl font-bold text-white mb-3">Get in Touch</h2>
+              <p class="text-slate-400 mb-12">
+                Have a question or want to work together? Drop us a message!
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <i class="ri-mail-fill text-xl text-purple-400"></i>
+                  <span class="text-slate-300">arafatnill2.0@gmail.com</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <i class="ri-map-pin-fill text-xl text-purple-400"></i>
+                  <span class="text-slate-300">Bagha, Rajshahi</span>
+                </div>
+              </div>
+            </div>
+        
+            <div class="bg-slate-900/70 p-8 rounded-xl shadow-2xl border border-slate-800">
+              <div id="success-message" class="hidden text-center py-10">
+                  <h3 class="text-2xl font-bold text-green-400 mb-4">Message Sent!</h3>
+                  <p class="text-slate-300">Thank you for reaching out. I will get back to you soon.</p>
+              </div>
+              
+              <form id="contact-form" action="#" method="POST" class="space-y-6">
+                <input type="text" name="name" class="block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Your Name" required>
+                <input type="email" name="email" class="block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Your Email" required>
+                <input type="text" name="subject" class="block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Subject" required>
+                <textarea name="message" rows="5" class="block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Your Message" required></textarea>
+                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition duration-300 cursor-pointer">
+                  Send Message
+                  <i class="ri-send-plane-fill"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <footer class="py-8 border-t border-slate-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-center sm:text-left text-slate-500 text-sm">
+                    &copy; 2025 Arafat Nill. All rights reserved.
+                </p>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="text-slate-400 hover:text-white"><i class="ri-github-fill text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white"><i class="ri-linkedin-box-fill text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white"><i class="ri-instagram-line text-xl"></i></a>
+                    <a href="#" class="text-slate-400 hover:text-white"><i class="ri-twitter-x-line text-xl"></i></a>
+                </div>
+            </div>
+        </footer>
       </div>
 
-      <script>
-        const menuBtn = document.getElementById("menu-btn");
-        const mobileMenu = document.getElementById("mobile-menu");
-
-        menuBtn.addEventListener("click", () => {
-          mobileMenu.classList.toggle("hidden");
-        });
-      </script>
+      <a href="#home" id="back-to-top" class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 z-50">
+        <i class="ri-arrow-up-s-line text-2xl"></i>
+      </a>
+      
     </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Mobile Menu Script
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+        if (mobileMenu.classList.contains("hidden")) {
+          menuIcon.classList.remove("ri-close-line");
+          menuIcon.classList.add("ri-menu-line");
+        } else {
+          menuIcon.classList.remove("ri-menu-line");
+          menuIcon.classList.add("ri-close-line");
+        }
+      });
+
+      const navLinks = mobileMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuIcon.classList.remove("ri-close-line");
+          menuIcon.classList.add("ri-menu-line");
+        });
+      });
+
+      // Back to Top Button Script
+      const backToTopButton = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.remove('hidden');
+        } else {
+          backToTopButton.classList.add('hidden');
+        }
+      });
+
+      // Contact Form Submission Script
+      const contactForm = document.getElementById('contact-form');
+      const successMessage = document.getElementById('success-message');
+      contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+        contactForm.classList.add('hidden');
+        successMessage.classList.remove('hidden');
+      });
+
+    </script>
   </body>
 </html>
