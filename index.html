@@ -35,6 +35,37 @@
           transform: translatey(0px);
         }
       }
+      /* Style for the typing cursor */
+      .typed-cursor {
+        font-size: 2.5rem;
+        color: #94a3b8;
+      }
+
+      /* Custom Swiper Styles */
+      .testimonial-slider-container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+      }
+      .testimonial-slider-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .testimonial-card {
+        flex-shrink: 0;
+        width: 100%; /* Default for mobile */
+        box-sizing: border-box;
+      }
+      @media (min-width: 768px) {
+        .testimonial-card {
+          width: 50%; /* 2 cards on medium screens */
+        }
+      }
+      @media (min-width: 1024px) {
+        .testimonial-card {
+          width: 33.3333%; /* 3 cards on large screens */
+        }
+      }
     </style>
   </head>
   <body class="bg-black text-white">
@@ -47,14 +78,40 @@
             <div
               class="hidden lg:flex items-center space-x-8 text-slate-300 font-medium"
             >
-              <a href="#home" class="hover:text-white">Home</a>
-              <a href="#skills" class="hover:text-white">Skills</a>
-              <a href="#projects" class="hover:text-white">Projects</a>
-              <a href="#contact" class="hover:text-white">Contact</a>
+              <a
+                href="#home"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Home</a
+              >
+              <a
+                href="#skills"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Skills</a
+              >
+              <a
+                href="#experience"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Experience</a
+              >
+              <a
+                href="#projects"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Projects</a
+              >
+              <a
+                href="#testimonials"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Testimonials</a
+              >
+              <a
+                href="#contact"
+                class="hover:text-white transition-all duration-300 ease-in-out"
+                >Contact</a
+              >
             </div>
 
             <div class="lg:hidden">
-              <button id="menu-btn" class="text-white">
+              <button id="menu-btn" class="text-white" aria-label="Toggle menu">
                 <i id="menu-icon" class="ri-menu-line text-2xl"></i>
               </button>
             </div>
@@ -65,22 +122,32 @@
           >
             <a
               href="#home"
-              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
               >Home</a
             >
             <a
               href="#skills"
-              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
               >Skills</a
             >
             <a
+              href="#experience"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
+              >Experience</a
+            >
+            <a
               href="#projects"
-              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
               >Projects</a
             >
             <a
+              href="#testimonials"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
+              >Testimonials</a
+            >
+            <a
               href="#contact"
-              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded"
+              class="block py-2 px-4 text-sm text-slate-300 hover:bg-slate-800 rounded transition-all duration-300 ease-in-out"
               >Contact</a
             >
           </div>
@@ -123,8 +190,10 @@
               >
                 I'm Arafat Nill
               </h1>
-              <p class="mt-2 text-2xl md:text-3xl font-semibold text-slate-300">
-                Pixel Composer of Interfaces
+              <p
+                class="mt-2 text-2xl md:text-3xl font-semibold text-slate-300 h-20 lg:h-10"
+              >
+                <span id="typed-text"></span>
               </p>
               <p class="mt-6 text-base text-slate-400 max-w-lg mx-auto lg:mx-0">
                 I craft user interfaces with the spirit of poetry and logic.
@@ -135,16 +204,28 @@
                 class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
               >
                 <p class="text-slate-300 font-medium">Follow me on:</p>
-                <a href="#" class="text-slate-400 hover:text-white"
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                  aria-label="GitHub"
                   ><i class="ri-github-fill text-2xl"></i
                 ></a>
-                <a href="#" class="text-slate-400 hover:text-white"
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                  aria-label="LinkedIn"
                   ><i class="ri-linkedin-box-fill text-2xl"></i
                 ></a>
-                <a href="#" class="text-slate-400 hover:text-white"
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                  aria-label="Instagram"
                   ><i class="ri-instagram-line text-2xl"></i
                 ></a>
-                <a href="#" class="text-slate-400 hover:text-white"
+                <a
+                  href="#"
+                  class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                  aria-label="Twitter"
                   ><i class="ri-twitter-x-line text-2xl"></i
                 ></a>
               </div>
@@ -153,14 +234,15 @@
                 class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
               >
                 <a
-                  href="#"
-                  class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
+                  href="./assets/arafat-cv.pdf"
+                  download
+                  class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 ease-in-out cursor-pointer"
                 >
                   <i class="ri-download-2-line mr-2"></i> Download CV
                 </a>
                 <a
                   href="#contact"
-                  class="bg-transparent text-slate-200 px-6 py-3 rounded-lg font-semibold border border-slate-600 hover:bg-slate-800 transition duration-300 cursor-pointer"
+                  class="bg-transparent text-slate-200 px-6 py-3 rounded-lg font-semibold border border-slate-600 hover:bg-slate-800 transition-all duration-300 ease-in-out cursor-pointer"
                 >
                   Contact Me
                 </a>
@@ -168,42 +250,367 @@
             </div>
 
             <div
-              class="relative flex items-center justify-center order-first lg:order-last"
-              data-aos="fade-left"
+              class="flex items-center justify-center p-4 font-sans bg-white dark:bg-zinc-950" data-aos="fade-left" 
             >
-              <div class="relative w-72 h-72 lg:w-96 lg:h-96">
-                <img
-                  src="./assets/hero.jpg"
-                  alt="Profile picture of Arafat Nill"
-                  class="rounded-full w-full h-full object-cover shadow-lg border-8 border-slate-700"
-                />
-                <div
-                  class="float-icon absolute top-8 left-0 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.2s"
-                >
-                  <i class="ri-css3-fill text-blue-500 text-3xl"></i>
+              <div
+                class="max-w-2xl w-full mx-auto bg-gradient-to-r from-zinc-100 to-zinc-200 dark:from-[#000000] dark:to-[#0a0d37] border-zinc-300 dark:border-[#1b2c68a0] relative rounded-lg border shadow-lg"
+              >
+                <div class="flex flex-row">
+                  <div
+                    class="h-[2px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"
+                  ></div>
+                  <div
+                    class="h-[2px] w-full bg-gradient-to-r from-violet-600 to-transparent"
+                  ></div>
                 </div>
+
                 <div
-                  class="float-icon absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                  class="px-4 lg:px-8 py-5 flex justify-between items-center bg-zinc-200 dark:bg-[#000000]"
                 >
-                  <i class="ri-html5-fill text-3xl text-red-500"></i>
+                  <div class="flex flex-row space-x-2">
+                    <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div class="h-3 w-3 rounded-full bg-orange-400"></div>
+                    <div class="h-3 w-3 rounded-full bg-green-400"></div>
+                  </div>
+                  <div
+                    class="text-xs text-zinc-600 dark:text-gray-400 font-mono"
+                  >
+                    coder.js
+                  </div>
                 </div>
+
                 <div
-                  class="float-icon absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.4s"
+                  class="overflow-hidden border-t-[2px] border-zinc-300 dark:border-indigo-900 px-4 lg:px-8 py-4 lg:py-8 relative"
                 >
-                  <i class="ri-tailwind-css-fill text-blue-400 text-3xl"></i>
+                  <div
+                    class="absolute -top-24 -left-24 w-56 h-56 bg-blue-600 rounded-full opacity-10 filter blur-3xl"
+                  ></div>
+                  <div
+                    class="absolute -bottom-24 -right-24 w-56 h-56 bg-pink-600 rounded-full opacity-10 filter blur-3xl"
+                  ></div>
+
+                  <div class="relative flex">
+                    <div
+                      class="hidden md:flex flex-col items-end pr-4 text-zinc-600 dark:text-gray-500 font-mono text-xs"
+                    >
+                      <div class="leading-relaxed select-none opacity-70">
+                        1
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        2
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        3
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        4
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        5
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        6
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        7
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        8
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        9
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        10
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        11
+                      </div>
+                      <div class="leading-relaxed select-none opacity-70">
+                        12
+                      </div>
+                    </div>
+
+                    <code
+                      class="font-mono text-xs md:text-sm lg:text-base w-full"
+                    >
+                      <div>
+                        <span class="mr-2 text-pink-500 dark:text-pink-400"
+                          >const</span
+                        >
+                        <span class="mr-2 text-violet-500 dark:text-violet-400"
+                          >coder</span
+                        >
+                        <span class="mr-2 text-pink-500 dark:text-pink-400"
+                          >=</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">{</span>
+                      </div>
+                      <div class="pl-6">
+                        <span class="text-zinc-800 dark:text-white">name:</span>
+                        <span class="text-zinc-600 dark:text-gray-400">'</span>
+                        <span class="text-green-600 dark:text-green-400"
+                          >Arafat Nill</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">',</span>
+                      </div>
+                      <div class="pl-6">
+                        <span class="text-zinc-800 dark:text-white">role:</span>
+                        <span class="text-zinc-600 dark:text-gray-400">'</span>
+                        <span class="text-green-600 dark:text-green-400"
+                          >Frontend Developer</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">',</span>
+                      </div>
+                      <div class="pl-6">
+                        <span class="text-zinc-800 dark:text-white"
+                          >seniority:</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">'</span>
+                        <span class="text-green-600 dark:text-green-400"
+                          >Mid-Level</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">',</span>
+                      </div>
+                      <div class="pl-6">
+                        <span class="text-zinc-800 dark:text-white"
+                          >location:</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">'</span>
+                        <span class="text-green-600 dark:text-green-400"
+                          >Bangladesh</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">',</span>
+                      </div>
+                      <div class="pl-6">
+                        <span class="text-zinc-800 dark:text-white"
+                          >skills:</span
+                        >
+                        <span class="text-zinc-600 dark:text-gray-400">[</span>
+                        <div class="pl-6 flex flex-wrap">
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >React</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Next.js</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >JavaScript</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >TypeScript</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >TailwindCSS</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >CSS</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Figma</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >GitHub</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >HTML</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Astro</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Node.js</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Express</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >MongoDB</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Firebase</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >,
+                            </span>
+                          </span>
+                          <span class="mr-1">
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                            <span class="text-cyan-600 dark:text-cyan-400"
+                              >Git</span
+                            >
+                            <span class="text-zinc-600 dark:text-gray-400"
+                              >'</span
+                            >
+                          </span>
+                        </div>
+                        <span class="text-zinc-600 dark:text-gray-400">],</span>
+                      </div>
+                      <div>
+                        <span class="text-zinc-600 dark:text-gray-400">};</span>
+                      </div>
+                    </code>
+                  </div>
                 </div>
+
                 <div
-                  class="float-icon absolute bottom-8 left-4 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                  style="animation-delay: 0.6s"
+                  class="px-4 lg:px-8 pb-4 mt-4 border-t border-zinc-300 dark:border-gray-800 pt-3 text-xs text-zinc-600 dark:text-gray-500 flex justify-between items-center"
                 >
-                  <i class="ri-javascript-fill text-yellow-400 text-3xl"></i>
-                </div>
-                <div
-                  class="float-icon absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
-                >
-                  <i class="ri-reactjs-fill text-cyan-400 text-3xl"></i>
+                  <span>UTF-8</span>
+                  <span>JavaScript</span>
+                  <span>Ln 12, Col 2</span>
                 </div>
               </div>
             </div>
@@ -224,7 +631,7 @@
             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
           >
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-blue-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-blue-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -262,7 +669,7 @@
               </div>
             </div>
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-green-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-green-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -300,7 +707,7 @@
               </div>
             </div>
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-purple-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -328,7 +735,7 @@
               </div>
             </div>
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-sky-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-sky-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -364,7 +771,7 @@
               </div>
             </div>
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-orange-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-orange-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -406,7 +813,7 @@
               </div>
             </div>
             <div
-              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 hover:border-yellow-500 hover:-translate-y-1 shadow-lg"
+              class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 transition-all duration-300 ease-in-out hover:border-yellow-500 hover:-translate-y-1 shadow-lg"
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -438,6 +845,145 @@
           </div>
         </section>
 
+        <section id="experience" class="py-20 lg:py-32">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-white">
+              Work Experience
+            </h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">
+              A timeline of my professional journey and key contributions.
+            </p>
+          </div>
+
+          <div class="relative max-w-4xl mx-auto px-4 sm:px-0">
+            <div
+              class="absolute h-full w-0.5 bg-slate-700 left-4 md:left-1/2 md:-translate-x-1/2"
+            ></div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:text-right">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-800 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-0 md:pr-8">
+                    <p class="font-semibold text-blue-400">
+                      Jan 2023 - Present
+                    </p>
+                    <h3 class="text-2xl font-bold text-white mt-1">
+                      Senior Frontend Developer
+                    </h3>
+                    <p class="text-slate-400">Tech Innovators Inc.</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                  <div
+                    class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 ml-12 md:ml-0"
+                  >
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                      <li>
+                        Led the development of a new client-facing dashboard
+                        using React and TypeScript.
+                      </li>
+                      <li>
+                        Improved application performance by 30% through code
+                        splitting and lazy loading.
+                      </li>
+                      <li>
+                        Mentored junior developers and conducted code reviews to
+                        ensure quality.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:order-last md:text-left">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-800 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-8">
+                    <p class="font-semibold text-blue-400">
+                      Jun 2021 - Dec 2022
+                    </p>
+                    <h3 class="text-2xl font-bold text-white mt-1">
+                      Mid-Level Developer
+                    </h3>
+                    <p class="text-slate-400">Creative Solutions Co.</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0 md:order-first">
+                  <div
+                    class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 ml-12 md:ml-0 md:mr-8"
+                  >
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                      <li>
+                        Developed and maintained features for an e-commerce
+                        platform using Next.js.
+                      </li>
+                      <li>
+                        Collaborated with UI/UX designers to implement
+                        pixel-perfect, responsive designs.
+                      </li>
+                      <li>
+                        Integrated various third-party APIs for payment and
+                        shipping services.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:text-right">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-slate-800 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-0 md:pr-8">
+                    <p class="font-semibold text-blue-400">
+                      Mar 2020 - May 2021
+                    </p>
+                    <h3 class="text-2xl font-bold text-white mt-1">
+                      Junior Developer
+                    </h3>
+                    <p class="text-slate-400">Web Wizards LLC</p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                  <div
+                    class="bg-slate-900/70 p-6 rounded-xl border border-slate-800 ml-12 md:ml-0"
+                  >
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                      <li>
+                        Assisted in building responsive websites using HTML,
+                        CSS, and JavaScript.
+                      </li>
+                      <li>
+                        Learned React and contributed to component library
+                        development.
+                      </li>
+                      <li>
+                        Fixed bugs and performed maintenance on existing client
+                        websites.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section id="projects" class="py-20 lg:py-32">
           <div class="text-center mb-12" data-aos="fade-up">
             <h2 class="text-4xl lg:text-5xl font-extrabold text-white">
@@ -445,22 +991,58 @@
             </h2>
             <p class="text-slate-400 mt-4">A selection of my recent work</p>
           </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div
+            class="flex justify-center flex-wrap gap-4 mb-12"
+            data-aos="fade-up"
+            id="project-filters"
+          >
+            <button
+              class="filter-btn active bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 ease-in-out"
+              data-filter="all"
+            >
+              All
+            </button>
+            <button
+              class="filter-btn bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 ease-in-out"
+              data-filter="frontend"
+            >
+              Frontend
+            </button>
+            <button
+              class="filter-btn bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 ease-in-out"
+              data-filter="backend"
+            >
+              Backend
+            </button>
+            <button
+              class="filter-btn bg-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 ease-in-out"
+              data-filter="ui-ux"
+            >
+              UI/UX
+            </button>
+          </div>
+
+          <div
+            id="project-grid"
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             <div
-              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              class="project-card bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
               data-aos="fade-up"
               data-aos-delay="100"
+              data-category="frontend backend"
             >
               <img
                 src="./assets/p1.png"
                 alt="Project 1"
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
               />
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">News & Magazine</h3>
                 <p class="text-slate-400 text-sm mb-4">
-                  A full-featured e-commerce site with product listings, cart,
-                  and payment integration.
+                  A full-featured news portal with admin dashboard, user roles,
+                  and dynamic content.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -472,39 +1054,40 @@
                     >Node.js</span
                   >
                   <span
-                    class="text-xs font-semibold bg-slate-800 text-yellow-400 py-1 px-2 rounded-full"
-                    >Express</span
+                    class="text-xs font-semibold bg-slate-800 text-green-500 py-1 px-2 rounded-full"
+                    >MongoDB</span
                   >
                 </div>
                 <div class="flex items-center space-x-4">
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-github-fill mr-1"></i> Code</a
                   >
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-external-link-line mr-1"></i> Live Demo</a
                   >
                 </div>
               </div>
             </div>
             <div
-              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              class="project-card bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
               data-aos="fade-up"
               data-aos-delay="200"
+              data-category="frontend"
             >
               <img
                 src="./assets/p2.png"
                 alt="Project 2"
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
               />
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Academy - Online Course</h3>
                 <p class="text-slate-400 text-sm mb-4">
-                  A personal portfolio website to showcase skills and projects,
-                  built with a modern tech stack.
+                  An e-learning platform UI built with a modern frontend stack
+                  for a seamless user experience.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -519,32 +1102,33 @@
                 <div class="flex items-center space-x-4">
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-github-fill mr-1"></i> Code</a
                   >
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-external-link-line mr-1"></i> Live Demo</a
                   >
                 </div>
               </div>
             </div>
             <div
-              class="bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
+              class="project-card bg-slate-900 rounded-lg overflow-hidden border border-slate-800 group"
               data-aos="fade-up"
               data-aos-delay="300"
+              data-category="ui-ux backend"
             >
               <img
                 src="./assets/p3.png"
                 alt="Project 3"
-                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
               />
               <div class="p-6">
                 <h3 class="text-xl font-bold mb-2">Payment Project App</h3>
                 <p class="text-slate-400 text-sm mb-4">
-                  A web application for managing tasks with features like
-                  drag-and-drop and user authentication.
+                  A peer-to-peer payment application design and backend API
+                  implementation.
                 </p>
                 <div class="flex flex-wrap gap-2 mb-4">
                   <span
@@ -557,22 +1141,136 @@
                   >
                   <span
                     class="text-xs font-semibold bg-slate-800 text-green-400 py-1 px-2 rounded-full"
-                    >MongoDB</span
+                    >Node.js</span
                   >
                 </div>
                 <div class="flex items-center space-x-4">
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-github-fill mr-1"></i> Code</a
                   >
                   <a
                     href="#"
-                    class="text-slate-300 hover:text-blue-500 transition-colors"
+                    class="text-slate-300 hover:text-blue-500 transition-colors duration-300 ease-in-out"
                     ><i class="ri-external-link-line mr-1"></i> Live Demo</a
                   >
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="testimonials" class="py-20 lg:py-32">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-4xl lg:text-5xl font-extrabold text-white">
+              What Clients Say
+            </h2>
+            <p class="text-slate-400 mt-4 max-w-2xl mx-auto">
+              Feedback from people I've had the pleasure to work with.
+            </p>
+          </div>
+
+          <div class="max-w-6xl mx-auto" data-aos="fade-up">
+            <div class="testimonial-slider-container">
+              <div id="testimonial-track" class="testimonial-slider-track">
+                <div class="testimonial-card p-4">
+                  <div
+                    class="bg-slate-900/70 p-8 rounded-xl border border-slate-800 h-full flex flex-col"
+                  >
+                    <i
+                      class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
+                    ></i>
+                    <p class="text-slate-300 mb-6 flex-grow">
+                      Arafat is a true professional. His attention to detail and
+                      creative solutions were instrumental in our project's
+                      success. The final product exceeded our expectations.
+                    </p>
+                    <div class="flex items-center mt-auto">
+                      <img
+                        src="https://randomuser.me/api/portraits/men/32.jpg"
+                        alt="Client 1"
+                        class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700"
+                      />
+                      <div>
+                        <h4 class="font-bold text-white">John Doe</h4>
+                        <p class="text-sm text-slate-400">CEO, Startup XYZ</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="testimonial-card p-4">
+                  <div
+                    class="bg-slate-900/70 p-8 rounded-xl border border-slate-800 h-full flex flex-col"
+                  >
+                    <i
+                      class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
+                    ></i>
+                    <p class="text-slate-300 mb-6 flex-grow">
+                      Working with Arafat was a breeze. He's an excellent
+                      communicator and delivered a high-quality, responsive
+                      website on a tight deadline. Highly recommended!
+                    </p>
+                    <div class="flex items-center mt-auto">
+                      <img
+                        src="https://randomuser.me/api/portraits/women/44.jpg"
+                        alt="Client 2"
+                        class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700"
+                      />
+                      <div>
+                        <h4 class="font-bold text-white">Jane Smith</h4>
+                        <p class="text-sm text-slate-400">
+                          Project Manager, TechCorp
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="testimonial-card p-4">
+                  <div
+                    class="bg-slate-900/70 p-8 rounded-xl border border-slate-800 h-full flex flex-col"
+                  >
+                    <i
+                      class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
+                    ></i>
+                    <p class="text-slate-300 mb-6 flex-grow">
+                      The UI/UX work was outstanding. Arafat has a great eye for
+                      design and usability, transforming our complex
+                      requirements into an intuitive interface.
+                    </p>
+                    <div class="flex items-center mt-auto">
+                      <img
+                        src="https://randomuser.me/api/portraits/men/36.jpg"
+                        alt="Client 3"
+                        class="w-12 h-12 rounded-full mr-4 border-2 border-slate-700"
+                      />
+                      <div>
+                        <h4 class="font-bold text-white">Sam Wilson</h4>
+                        <p class="text-sm text-slate-400">Founder, DesignHub</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex justify-center items-center mt-8 gap-4">
+              <button
+                id="prev-testimonial"
+                class="bg-slate-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out"
+                aria-label="Previous testimonial"
+              >
+                <i class="ri-arrow-left-s-line text-2xl"></i>
+              </button>
+              <button
+                id="next-testimonial"
+                class="bg-slate-800 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 ease-in-out"
+                aria-label="Next testimonial"
+              >
+                <i class="ri-arrow-right-s-line text-2xl"></i>
+              </button>
             </div>
           </div>
         </section>
@@ -584,7 +1282,7 @@
                 Get in Touch
               </h2>
               <p class="text-slate-400 mb-12">
-                Have a question or want to work together? Drop us a message!
+                Have a question or want to work together? Drop me a message!
               </p>
               <div class="space-y-6">
                 <div class="flex items-center gap-4">
@@ -601,52 +1299,52 @@
             <div
               class="bg-slate-900/70 p-8 rounded-xl shadow-2xl border border-slate-800"
             >
-              <div id="success-message" class="hidden text-center py-10">
-                <h3 class="text-2xl font-bold text-green-400 mb-4">
-                  Message Sent!
-                </h3>
-                <p class="text-slate-300">
-                  Thank you for reaching out. I will get back to you soon.
-                </p>
-              </div>
+              <div id="form-result" class="hidden text-center py-10"></div>
 
               <form
                 id="contact-form"
-                action="#"
+                action="https://api.web3forms.com/submit"
                 method="POST"
                 class="space-y-6"
               >
                 <input
+                  type="hidden"
+                  name="access_key"
+                  value="YOUR_ACCESS_KEY_HERE"
+                />
+
+                <input
                   type="text"
                   name="name"
-                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out"
                   placeholder="Your Name"
                   required
                 />
                 <input
                   type="email"
                   name="email"
-                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out"
                   placeholder="Your Email"
                   required
                 />
                 <input
                   type="text"
                   name="subject"
-                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out"
                   placeholder="Subject"
                   required
                 />
                 <textarea
                   name="message"
                   rows="5"
-                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                  class="outline-0 block w-full p-4 bg-slate-800 border border-slate-700 rounded-lg text-slate-200 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 ease-in-out"
                   placeholder="Your Message"
                   required
                 ></textarea>
+
                 <button
                   type="submit"
-                  class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition duration-300 cursor-pointer"
+                  class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-all duration-300 ease-in-out cursor-pointer"
                 >
                   Send Message
                   <i class="ri-send-plane-fill"></i>
@@ -664,16 +1362,28 @@
               &copy; 2025 Arafat Nill. All rights reserved.
             </p>
             <div class="flex items-center space-x-4">
-              <a href="#" class="text-slate-400 hover:text-white"
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                aria-label="GitHub"
                 ><i class="ri-github-fill text-xl"></i
               ></a>
-              <a href="#" class="text-slate-400 hover:text-white"
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                aria-label="LinkedIn"
                 ><i class="ri-linkedin-box-fill text-xl"></i
               ></a>
-              <a href="#" class="text-slate-400 hover:text-white"
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                aria-label="Instagram"
                 ><i class="ri-instagram-line text-xl"></i
               ></a>
-              <a href="#" class="text-slate-400 hover:text-white"
+              <a
+                href="#"
+                class="text-slate-400 hover:text-white transition-all duration-300 ease-in-out"
+                aria-label="Twitter"
                 ><i class="ri-twitter-x-line text-xl"></i
               ></a>
             </div>
@@ -684,13 +1394,15 @@
       <a
         href="#home"
         id="back-to-top"
-        class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 z-50"
+        class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out z-50"
+        aria-label="Back to top"
       >
         <i class="ri-arrow-up-s-line text-2xl"></i>
       </a>
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
     <script>
       // Initialize AOS
@@ -734,13 +1446,161 @@
         }
       });
 
-      // Contact Form Submission Script
+      // Typed.js Script
+      const typed = new Typed("#typed-text", {
+        strings: [
+          "Pixel Composer of Interfaces",
+          "A Frontend Developer",
+          "A UI/UX Enthusiast",
+        ],
+        typeSpeed: 50,
+        backSpeed: 25,
+        backDelay: 2000,
+        loop: true,
+      });
+
+      // Project Filtering Script
+      const filterButtons = document.querySelectorAll(
+        "#project-filters .filter-btn"
+      );
+      const projectCards = document.querySelectorAll(
+        "#project-grid .project-card"
+      );
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Update active button style
+          filterButtons.forEach((btn) => {
+            btn.classList.remove("bg-blue-600", "text-white");
+            btn.classList.add("bg-slate-800", "text-slate-300");
+          });
+          button.classList.add("bg-blue-600", "text-white");
+          button.classList.remove("bg-slate-800", "text-slate-300");
+
+          const filter = button.getAttribute("data-filter");
+
+          projectCards.forEach((card) => {
+            const categories = card.getAttribute("data-category");
+            if (filter === "all" || categories.includes(filter)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
+            }
+          });
+        });
+      });
+
+      // Contact Form Submission Script with Web3Forms
       const contactForm = document.getElementById("contact-form");
-      const successMessage = document.getElementById("success-message");
-      contactForm.addEventListener("submit", function (event) {
-        event.preventDefault();
+      const formResult = document.getElementById("form-result");
+
+      contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(contactForm);
+        const object = {};
+        formData.forEach((value, key) => {
+          object[key] = value;
+        });
+        const json = JSON.stringify(object);
+        formResult.innerHTML = "Please wait...";
+        formResult.classList.remove("hidden");
         contactForm.classList.add("hidden");
-        successMessage.classList.remove("hidden");
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let jsonResponse = await response.json();
+            if (response.status == 200) {
+              formResult.innerHTML = `
+                          <h3 class="text-2xl font-bold text-green-400 mb-4">Message Sent!</h3>
+                          <p class="text-slate-300">Thank you for reaching out. I will get back to you soon.</p>
+                      `;
+            } else {
+              console.log(response);
+              formResult.innerHTML = `
+                          <h3 class="text-2xl font-bold text-red-400 mb-4">Something went wrong!</h3>
+                          <p class="text-slate-300">${jsonResponse.message}</p>
+                      `;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            formResult.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            contactForm.reset();
+            setTimeout(() => {
+              formResult.classList.add("hidden");
+              contactForm.classList.remove("hidden");
+            }, 5000);
+          });
+      });
+
+      // Custom Testimonial Swiper Script
+      document.addEventListener("DOMContentLoaded", () => {
+        const track = document.getElementById("testimonial-track");
+        const prevBtn = document.getElementById("prev-testimonial");
+        const nextBtn = document.getElementById("next-testimonial");
+        const cards = Array.from(track.children);
+
+        let currentIndex = 0;
+        let itemsVisible = 1; // Default for mobile
+
+        const updateItemsVisible = () => {
+          if (window.innerWidth >= 1024) {
+            itemsVisible = 3;
+          } else if (window.innerWidth >= 768) {
+            itemsVisible = 2;
+          } else {
+            itemsVisible = 1;
+          }
+        };
+
+        const updateSliderPosition = () => {
+          const cardWidth = track
+            .querySelector(".testimonial-card")
+            .getBoundingClientRect().width;
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+          updateButtons();
+        };
+
+        const updateButtons = () => {
+          prevBtn.disabled = currentIndex === 0;
+          nextBtn.disabled = currentIndex >= cards.length - itemsVisible;
+        };
+
+        nextBtn.addEventListener("click", () => {
+          if (currentIndex < cards.length - itemsVisible) {
+            currentIndex++;
+            updateSliderPosition();
+          }
+        });
+
+        prevBtn.addEventListener("click", () => {
+          if (currentIndex > 0) {
+            currentIndex--;
+            updateSliderPosition();
+          }
+        });
+
+        window.addEventListener("resize", () => {
+          updateItemsVisible();
+          // Reset index if it becomes invalid on resize
+          if (currentIndex > cards.length - itemsVisible) {
+            currentIndex = Math.max(0, cards.length - itemsVisible);
+          }
+          updateSliderPosition();
+        });
+
+        // Initial setup
+        updateItemsVisible();
+        updateSliderPosition();
       });
     </script>
   </body>
