@@ -66,6 +66,29 @@
           width: 33.3333%; /* 3 cards on large screens */
         }
       }
+
+      /* --- Chatbox Styles --- */
+      #chat-widget {
+        transform: translateY(200%);
+        transition: transform 0.3s ease-in-out;
+      }
+      #chat-widget.active {
+        transform: translateY(0);
+      }
+      .chat-message {
+        animation: slideIn 0.3s ease-out;
+      }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* --- End Chatbox Styles --- */
     </style>
   </head>
   <body class="bg-slate-50 text-slate-900 dark:bg-black dark:text-white">
@@ -201,7 +224,7 @@
           <div
             class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
           >
-            <div class="lg:text-left " data-aos="fade-right">
+            <div class="lg:text-left" data-aos="fade-right">
               <h1
                 class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
               >
@@ -1159,15 +1182,78 @@
         </footer>
       </div>
 
-      <a
-        href="#home"
-        id="back-to-top"
-        class="hidden fixed bottom-8 right-8 bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out z-50"
-        aria-label="Back to top"
+      <div
+        class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4"
       >
-        <i class="ri-arrow-up-s-line text-2xl"></i>
-      </a>
-    </div>
+        <div
+          id="chat-widget"
+          class="w-80 h-[28rem] bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
+        >
+          <div
+            class="p-4 bg-slate-100 dark:bg-slate-800/50 border-b border-slate-200 dark:border-slate-700 flex justify-between items-center"
+          >
+            <div>
+              <h3 class="font-bold text-slate-800 dark:text-white">
+                Nill-Bot Assistant
+              </h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">
+                Ask me about Arafat!
+              </p>
+            </div>
+            <button
+              id="close-chat-btn"
+              class="text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-white"
+              aria-label="Close chat"
+            >
+              <i class="ri-close-line text-2xl"></i>
+            </button>
+          </div>
+          <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4">
+            <div class="chat-message flex gap-3">
+              <div
+                class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold"
+              >
+                N
+              </div>
+              <div
+                class="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg rounded-tl-none"
+              >
+                <p class="text-sm text-slate-700 dark:text-slate-300">
+                  Hi there! How can I help you learn more about Arafat Nill?
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="p-4 bg-slate-100 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700"
+          >
+            <form id="chat-form" class="flex items-center gap-2">
+              <input
+                id="chat-input"
+                type="text"
+                placeholder="Type your message..."
+                class="flex-1 outline-0 p-2 bg-slate-200 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-sm placeholder:text-slate-500 dark:placeholder:text-slate-400 focus:ring-2 focus:ring-blue-500 transition"
+                required
+              />
+              <button
+                type="submit"
+                class="bg-blue-600 text-white w-9 h-9 rounded-lg flex items-center justify-center hover:bg-blue-700 transition-colors"
+                aria-label="Send message"
+              >
+                <i class="ri-send-plane-fill"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <button
+          id="chat-toggle-btn"
+          class="bg-blue-600 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out"
+          aria-label="Toggle chat"
+        >
+          <i id="chat-toggle-icon" class="ri-question-answer-line text-2xl"></i>
+        </button>
+      </div>
+      </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
@@ -1204,16 +1290,6 @@
         });
       });
 
-      // Back to Top Button Script
-      const backToTopButton = document.getElementById("back-to-top");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 300) {
-          backToTopButton.classList.remove("hidden");
-        } else {
-          backToTopButton.classList.add("hidden");
-        }
-      });
-
       // Typed.js Script
       const typed = new Typed("#typed-text", {
         strings: [
@@ -1228,7 +1304,7 @@
         loop: true,
       });
 
-      // --- UPDATED Project Filtering Script ---
+      // Project Filtering Script
       const filterButtons = document.querySelectorAll(
         "#project-filters .filter-btn"
       );
@@ -1238,14 +1314,12 @@
 
       filterButtons.forEach((button) => {
         button.addEventListener("click", () => {
-          // Remove active class from the currently active button
           const currentActive = document.querySelector(
             "#project-filters .filter-btn.active"
           );
           if (currentActive) {
             currentActive.classList.remove("active");
           }
-          // Add active class to the clicked button
           button.classList.add("active");
 
           const filter = button.getAttribute("data-filter");
@@ -1260,10 +1334,6 @@
           });
         });
       });
-      // --- End of UPDATED Script ---
-
-     
-      
 
       // Custom Testimonial Swiper Script
       document.addEventListener("DOMContentLoaded", () => {
@@ -1274,7 +1344,7 @@
         const cards = Array.from(track.children);
 
         let currentIndex = 0;
-        let itemsVisible = 1; // Default for mobile
+        let itemsVisible = 1;
 
         const updateItemsVisible = () => {
           if (window.innerWidth >= 1024) {
@@ -1315,17 +1385,119 @@
 
         window.addEventListener("resize", () => {
           updateItemsVisible();
-          // Reset index if it becomes invalid on resize
           if (currentIndex > cards.length - itemsVisible) {
             currentIndex = Math.max(0, cards.length - itemsVisible);
           }
           updateSliderPosition();
         });
 
-        // Initial setup
         updateItemsVisible();
         updateSliderPosition();
       });
+
+      // --- Personal Assistant Chatbot Script ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const chatWidget = document.getElementById("chat-widget");
+        const chatToggleBtn = document.getElementById("chat-toggle-btn");
+        const closeChatBtn = document.getElementById("close-chat-btn");
+        const chatForm = document.getElementById("chat-form");
+        const chatInput = document.getElementById("chat-input");
+        const chatMessages = document.getElementById("chat-messages");
+        const chatToggleIcon = document.getElementById("chat-toggle-icon");
+
+        const API_ENDPOINT = "/api/chat"; // This will work with Vercel's proxy
+
+        const toggleChat = (forceClose = false) => {
+           if (forceClose || chatWidget.classList.contains("active")) {
+             chatWidget.classList.remove("active");
+             chatToggleIcon.classList.remove("ri-close-line");
+             chatToggleIcon.classList.add("ri-question-answer-line");
+           } else {
+             chatWidget.classList.add("active");
+             chatToggleIcon.classList.remove("ri-question-answer-line");
+             chatToggleIcon.classList.add("ri-close-line");
+           }
+        };
+
+        chatToggleBtn.addEventListener("click", () => toggleChat());
+        closeChatBtn.addEventListener("click", () => toggleChat(true));
+        
+        chatForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            appendMessage(message, "user");
+            chatInput.value = "";
+            chatInput.disabled = true;
+
+            appendMessage("...", "bot", true); // Typing indicator
+
+            try {
+                const response = await fetch(API_ENDPOINT, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ message }),
+                });
+
+                if (!response.ok) {
+                   throw new Error(`API Error: ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                updateLastBotMessage(data.reply);
+
+            } catch (error) {
+                console.error("Error fetching bot reply:", error);
+                updateLastBotMessage("Sorry, I'm having trouble connecting. Please try again later.");
+            } finally {
+                chatInput.disabled = false;
+                chatInput.focus();
+            }
+        });
+
+        const appendMessage = (text, sender, isTyping = false) => {
+            const messageWrapper = document.createElement("div");
+            messageWrapper.className = "chat-message flex gap-3";
+
+            let messageHTML = '';
+
+            if (sender === 'user') {
+                messageHTML = `
+                    <div class="p-3 bg-blue-500 text-white rounded-lg rounded-br-none ml-auto">
+                        <p class="text-sm">${text}</p>
+                    </div>
+                `;
+            } else {
+                if (isTyping) {
+                   messageWrapper.id = "typing-indicator";
+                }
+                messageHTML = `
+                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold">N</div>
+                    <div class="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg rounded-tl-none">
+                        <p class="text-sm text-slate-700 dark:text-slate-300">${text}</p>
+                    </div>
+                `;
+            }
+            
+            messageWrapper.innerHTML = messageHTML;
+            chatMessages.appendChild(messageWrapper);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        };
+
+        const updateLastBotMessage = (text) => {
+            const typingIndicator = document.getElementById("typing-indicator");
+            if (typingIndicator) {
+                const messageParagraph = typingIndicator.querySelector('p');
+                messageParagraph.textContent = text;
+                typingIndicator.removeAttribute("id"); // Remove ID so it's not selected again
+            }
+        };
+
+      });
+
     </script>
   </body>
 </html>
