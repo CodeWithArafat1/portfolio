@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Gemini Assistant</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; }
+        #chat-container { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; margin-bottom: 10px; }
+        textarea { width: 100%; padding: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background-color: #007bff; color: white; border: none; cursor: pointer; }
+        .user-msg { text-align: right; color: blue; }
+        .bot-msg { text-align: left; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Local Gemini Assistant</h1>
+    <div id="chat-container"></div>
+    <textarea id="message-input" placeholder="Type your message..."></textarea>
+    <button id="send-button">Send</button>
+<script src="./server.js"></script>
+    <script>
+        const chatContainer = document.getElementById('chat-container');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', async () => {
+            const message = messageInput.value.trim();
+            if (!message) return;
+
+            // Display user message
+            appendMessage(message, 'user-msg');
+            messageInput.value = '';
+
+            try {
+                // Send message to our local backend server
+                const response = await fetch('http://localhost:3000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message: message }),
+                });
+
+                const data = await response.json();
+                
+                // Display bot response
+                appendMessage(data.reply, 'bot-msg');
+
+            } catch (error) {
+                console.error('Error:', error);
+                appendMessage('Sorry, something went wrong.', 'bot-msg');
+            }
+        });
+
+        function appendMessage(text, className) {
+            const p = document.createElement('p');
+            p.textContent = text;
+            p.className = className;
+            chatContainer.appendChild(p);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    </script>
+</body>
+</html>

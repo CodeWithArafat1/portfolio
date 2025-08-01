@@ -957,7 +957,9 @@
                     <i
                       class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
                     ></i>
-                    <p class="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
+                    <p
+                      class="text-slate-600 dark:text-slate-300 mb-6 flex-grow"
+                    >
                       Arafat is a true professional. His attention to detail and
                       creative solutions were instrumental in our project's
                       success. The final product exceeded our expectations.
@@ -987,7 +989,9 @@
                     <i
                       class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
                     ></i>
-                    <p class="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
+                    <p
+                      class="text-slate-600 dark:text-slate-300 mb-6 flex-grow"
+                    >
                       Working with Arafat was a breeze. He's an excellent
                       communicator and delivered a high-quality, responsive
                       website on a tight deadline. Highly recommended!
@@ -1017,7 +1021,9 @@
                     <i
                       class="ri-double-quotes-l text-4xl text-blue-500 mb-4"
                     ></i>
-                    <p class="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
+                    <p
+                      class="text-slate-600 dark:text-slate-300 mb-6 flex-grow"
+                    >
                       The UI/UX work was outstanding. Arafat has a great eye for
                       design and usability, transforming our complex
                       requirements into an intuitive interface.
@@ -1182,9 +1188,7 @@
         </footer>
       </div>
 
-      <div
-        class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4"
-      >
+      <div class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4">
         <div
           id="chat-widget"
           class="w-80 h-[28rem] bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col overflow-hidden"
@@ -1253,11 +1257,12 @@
           <i id="chat-toggle-icon" class="ri-question-answer-line text-2xl"></i>
         </button>
       </div>
-      </div>
+    </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
 
+    <script src="./server.js"></script>
     <script>
       // Initialize AOS
       AOS.init({
@@ -1405,99 +1410,103 @@
         const chatMessages = document.getElementById("chat-messages");
         const chatToggleIcon = document.getElementById("chat-toggle-icon");
 
-        const API_ENDPOINT = "/api/chat"; // This will work with Vercel's proxy
+        // *** এই লাইনটি পরিবর্তন করতে হবে ***
+        // লোকাল সার্ভারের সম্পূর্ণ ঠিকানা এখানে দিতে হবে।
+        const API_ENDPOINT = "http://localhost:3000/chat";
 
         const toggleChat = (forceClose = false) => {
-           if (forceClose || chatWidget.classList.contains("active")) {
-             chatWidget.classList.remove("active");
-             chatToggleIcon.classList.remove("ri-close-line");
-             chatToggleIcon.classList.add("ri-question-answer-line");
-           } else {
-             chatWidget.classList.add("active");
-             chatToggleIcon.classList.remove("ri-question-answer-line");
-             chatToggleIcon.classList.add("ri-close-line");
-           }
+          if (forceClose || chatWidget.classList.contains("active")) {
+            chatWidget.classList.remove("active");
+            chatToggleIcon.classList.remove("ri-close-line");
+            chatToggleIcon.classList.add("ri-question-answer-line");
+          } else {
+            chatWidget.classList.add("active");
+            chatToggleIcon.classList.remove("ri-question-answer-line");
+            chatToggleIcon.classList.add("ri-close-line");
+          }
         };
 
         chatToggleBtn.addEventListener("click", () => toggleChat());
         closeChatBtn.addEventListener("click", () => toggleChat(true));
-        
+
         chatForm.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const message = chatInput.value.trim();
-            if (!message) return;
+          e.preventDefault();
+          const message = chatInput.value.trim();
+          if (!message) return;
 
-            appendMessage(message, "user");
-            chatInput.value = "";
-            chatInput.disabled = true;
+          appendMessage(message, "user");
+          chatInput.value = "";
+          chatInput.disabled = true;
 
-            appendMessage("...", "bot", true); // Typing indicator
+          appendMessage("...", "bot", true); // Typing indicator
 
-            try {
-                const response = await fetch(API_ENDPOINT, {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ message }),
-                });
+          try {
+            const response = await fetch(API_ENDPOINT, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ message }),
+            });
 
-                if (!response.ok) {
-                   throw new Error(`API Error: ${response.statusText}`);
-                }
-
-                const data = await response.json();
-                updateLastBotMessage(data.reply);
-
-            } catch (error) {
-                console.error("Error fetching bot reply:", error);
-                updateLastBotMessage("Sorry, I'm having trouble connecting. Please try again later.");
-            } finally {
-                chatInput.disabled = false;
-                chatInput.focus();
+            if (!response.ok) {
+              throw new Error(`API Error: ${response.statusText}`);
             }
+
+            const data = await response.json();
+            updateLastBotMessage(data.reply);
+          } catch (error) {
+            console.error("Error fetching bot reply:", error);
+            updateLastBotMessage(
+              "Sorry, I'm having trouble connecting. Please try again later."
+            );
+          } finally {
+            chatInput.disabled = false;
+            chatInput.focus();
+          }
         });
 
         const appendMessage = (text, sender, isTyping = false) => {
-            const messageWrapper = document.createElement("div");
-            messageWrapper.className = "chat-message flex gap-3";
+          const messageWrapper = document.createElement("div");
+          messageWrapper.className = "chat-message flex gap-3";
 
-            let messageHTML = '';
+          let messageHTML = "";
 
-            if (sender === 'user') {
-                messageHTML = `
-                    <div class="p-3 bg-blue-500 text-white rounded-lg rounded-br-none ml-auto">
-                        <p class="text-sm">${text}</p>
-                    </div>
-                `;
-            } else {
-                if (isTyping) {
-                   messageWrapper.id = "typing-indicator";
-                }
-                messageHTML = `
-                    <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold">N</div>
-                    <div class="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg rounded-tl-none">
-                        <p class="text-sm text-slate-700 dark:text-slate-300">${text}</p>
-                    </div>
-                `;
+          if (sender === "user") {
+            // ইউজারের মেসেজ ডান দিকে দেখানোর জন্য ml-auto ক্লাস ব্যবহার করা হয়েছে
+            messageWrapper.classList.add("justify-end");
+            messageHTML = `
+                <div class="p-3 bg-blue-500 text-white rounded-lg rounded-br-none">
+                    <p class="text-sm">${text}</p>
+                </div>
+            `;
+          } else {
+            // বটের মেসেজ বাম দিকে দেখানোর জন্য
+            if (isTyping) {
+              messageWrapper.id = "typing-indicator";
             }
-            
-            messageWrapper.innerHTML = messageHTML;
-            chatMessages.appendChild(messageWrapper);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            messageHTML = `
+                <div class="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex-shrink-0 flex items-center justify-center text-white font-bold">N</div>
+                <div class="p-3 bg-slate-100 dark:bg-slate-800 rounded-lg rounded-tl-none">
+                    <p class="text-sm text-slate-700 dark:text-slate-300">${text}</p>
+                </div>
+            `;
+          }
+
+          messageWrapper.innerHTML = messageHTML;
+          chatMessages.appendChild(messageWrapper);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
         };
 
         const updateLastBotMessage = (text) => {
-            const typingIndicator = document.getElementById("typing-indicator");
-            if (typingIndicator) {
-                const messageParagraph = typingIndicator.querySelector('p');
-                messageParagraph.textContent = text;
-                typingIndicator.removeAttribute("id"); // Remove ID so it's not selected again
-            }
+          const typingIndicator = document.getElementById("typing-indicator");
+          if (typingIndicator) {
+            const messageParagraph = typingIndicator.querySelector("p");
+            messageParagraph.textContent = text;
+            typingIndicator.removeAttribute("id");
+          }
         };
-
       });
-
     </script>
   </body>
 </html>
