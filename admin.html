@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel - Arafat's Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      /* Custom scrollbar for better aesthetics */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #1e293b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #475569;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #64748b;
+      }
+    </style>
+  </head>
+  <body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+    <div class="flex min-h-screen">
+      <aside
+        id="sidebar"
+        class="fixed inset-y-0 left-0 bg-white dark:bg-slate-800 shadow-lg w-64 transform -translate-x-full lg:translate-x-0 z-50 transition-transform duration-300 ease-in-out"
+      >
+        <div class="p-5 border-b border-slate-200 dark:border-slate-700">
+          <a href="#" class="text-2xl font-bold text-slate-900 dark:text-white">Admin Panel</a>
+        </div>
+        <nav class="flex-grow p-4">
+          <ul class="space-y-2">
+            <li>
+              <a href="#home" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                <i class="ri-home-5-line mr-3 text-xl"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li>
+              <a href="#skills" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                <i class="ri-tools-line mr-3 text-xl"></i>
+                <span>Skills</span>
+              </a>
+            </li>
+            <li>
+              <a href="#experience" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                <i class="ri-briefcase-4-line mr-3 text-xl"></i>
+                <span>Experience</span>
+              </a>
+            </li>
+            <li>
+              <a href="#projects" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+                <i class="ri-folder-chart-line mr-3 text-xl"></i>
+                <span>Projects</span>
+              </a>
+            </li>
+            <li>
+              <a href="#messages" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors relative">
+                <i class="ri-mail-line mr-3 text-xl"></i>
+                <span>Messages</span>
+                <span id="message-count-badge" class="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full hidden"></span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <div class="p-4 border-t border-slate-200 dark:border-slate-700">
+             <a href="./index.html" target="_blank" class="flex items-center justify-center w-full p-3 rounded-lg bg-blue-500 text-white font-semibold hover:bg-blue-600 transition-colors">
+                <i class="ri-arrow-left-up-line mr-2"></i>
+                <span>View Portfolio</span>
+              </a>
+        </div>
+      </aside>
+
+      <button id="menu-toggle" class="lg:hidden fixed top-4 left-4 z-50 bg-white dark:bg-slate-800 p-2 rounded-md shadow-md">
+        <i class="ri-menu-line text-2xl"></i>
+      </button>
+
+      <main class="flex-1 lg:ml-64 p-6 sm:p-8 transition-all duration-300">
+        <section id="home-content" class="content-section">
+          <h1 class="text-3xl font-bold mb-6">Home Page Content</h1>
+          <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+              <form id="home-form" class="space-y-4">
+                  <div>
+                      <label for="home-name" class="block font-medium mb-1">Full Name</label>
+                      <input type="text" id="home-name" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                  </div>
+                  <div>
+                      <label for="home-taglines" class="block font-medium mb-1">Typing Taglines (one per line)</label>
+                      <textarea id="home-taglines" rows="3" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                  </div>
+                  <div>
+                      <label for="home-description" class="block font-medium mb-1">Short Description</label>
+                      <textarea id="home-description" rows="4" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                  </div>
+                  <div>
+                      <label for="home-cv-url" class="block font-medium mb-1">CV Download Link</label>
+                      <input type="url" id="home-cv-url" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                  </div>
+                   <h3 class="text-xl font-semibold pt-4 border-t border-slate-200 dark:border-slate-700">Social Links</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                         <div>
+                            <label for="social-github" class="block font-medium mb-1">GitHub URL</label>
+                            <input type="url" id="social-github" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                         <div>
+                            <label for="social-linkedin" class="block font-medium mb-1">LinkedIn URL</label>
+                            <input type="url" id="social-linkedin" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                         <div>
+                            <label for="social-instagram" class="block font-medium mb-1">Instagram URL</label>
+                            <input type="url" id="social-instagram" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                         <div>
+                            <label for="social-twitter" class="block font-medium mb-1">Twitter (X) URL</label>
+                            <input type="url" id="social-twitter" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                    </div>
+                  <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">Save Home Content</button>
+              </form>
+          </div>
+        </section>
+
+        <section id="skills-content" class="content-section hidden">
+          <h1 class="text-3xl font-bold mb-6">Skills</h1>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                 <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                    <h2 class="text-xl font-bold mb-4">Add New Skill</h2>
+                    <form id="skill-form" class="space-y-4">
+                        <div>
+                            <label for="skill-category" class="block font-medium mb-1">Category</label>
+                            <input type="text" id="skill-category" placeholder="e.g., Frontend Development" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div>
+                            <label for="skill-name" class="block font-medium mb-1">Skill Name</label>
+                            <input type="text" id="skill-name" placeholder="e.g., React" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">Add Skill</button>
+                    </form>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md lg:col-span-1">
+                     <h2 class="text-xl font-bold mb-4">Current Skills</h2>
+                     <div id="skills-list" class="space-y-4">
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience-content" class="content-section hidden">
+            <h1 class="text-3xl font-bold mb-6">Work Experience</h1>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md mb-6">
+                <h2 class="text-xl font-bold mb-4">Add New Experience</h2>
+                <form id="experience-form" class="space-y-4">
+                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="exp-title" class="block font-medium mb-1">Job Title</label>
+                            <input type="text" id="exp-title" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div>
+                            <label for="exp-company" class="block font-medium mb-1">Company Name</label>
+                            <input type="text" id="exp-company" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                     </div>
+                      <div>
+                        <label for="exp-dates" class="block font-medium mb-1">Date Range</label>
+                        <input type="text" id="exp-dates" placeholder="e.g., Jan 2023 - Present" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label for="exp-responsibilities" class="block font-medium mb-1">Responsibilities (one per line)</label>
+                        <textarea id="exp-responsibilities" rows="4" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">Add Experience</button>
+                </form>
+            </div>
+             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                 <h2 class="text-xl font-bold mb-4">Experience Timeline</h2>
+                 <div id="experience-list" class="space-y-4">
+                     </div>
+            </div>
+        </section>
+
+        <section id="projects-content" class="content-section hidden">
+          <h1 class="text-3xl font-bold mb-6">Projects</h1>
+             <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md mb-6">
+                <h2 class="text-xl font-bold mb-4">Add New Project</h2>
+                <form id="project-form" class="space-y-4">
+                     <div>
+                        <label for="proj-title" class="block font-medium mb-1">Project Title</label>
+                        <input type="text" id="proj-title" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                     <div>
+                        <label for="proj-image" class="block font-medium mb-1">Image URL</label>
+                        <input type="url" id="proj-image" placeholder="https://placehold.co/600x400" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label for="proj-description" class="block font-medium mb-1">Description</label>
+                        <textarea id="proj-description" rows="3" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none"></textarea>
+                    </div>
+                     <div>
+                        <label for="proj-tech" class="block font-medium mb-1">Technologies (comma separated)</label>
+                        <input type="text" id="proj-tech" placeholder="e.g., React, Node.js, Tailwind CSS" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="proj-code-link" class="block font-medium mb-1">Code Link (GitHub)</label>
+                            <input type="url" id="proj-code-link" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                        <div>
+                            <label for="proj-demo-link" class="block font-medium mb-1">Live Demo Link</label>
+                            <input type="url" id="proj-demo-link" class="w-full p-2 bg-slate-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-md focus:ring-2 focus:ring-blue-500 outline-none">
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">Add Project</button>
+                </form>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-md">
+                 <h2 class="text-xl font-bold mb-4">Project List</h2>
+                 <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                     </div>
+            </div>
+        </section>
+
+        <section id="messages-content" class="content-section hidden">
+          <h1 class="text-3xl font-bold mb-6">Contact Messages</h1>
+          <div class="flex justify-end mb-4">
+              <button id="delete-all-messages" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors flex items-center gap-2">
+                <i class="ri-delete-bin-line"></i> Delete All
+              </button>
+          </div>
+          <div id="messages-list" class="space-y-4">
+            </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DARK MODE ---
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // --- MOBILE SIDEBAR TOGGLE ---
+            const menuToggle = document.getElementById('menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+            menuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('-translate-x-full');
+            });
+
+            // --- NAVIGATION ---
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const activeLinkClasses = 'bg-slate-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 font-semibold';
+            
+            function switchTab(hash) {
+                navLinks.forEach(link => {
+                    link.classList.remove(...activeLinkClasses.split(' '));
+                    if(link.getAttribute('href') === hash) {
+                        link.classList.add(...activeLinkClasses.split(' '));
+                    }
+                });
+
+                contentSections.forEach(section => {
+                    if (`#${section.id}` === `${hash}-content`) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    window.location.hash = link.getAttribute('href');
+                     if (window.innerWidth < 1024) {
+                        sidebar.classList.add('-translate-x-full');
+                    }
+                });
+            });
+            
+            window.addEventListener('hashchange', () => switchTab(window.location.hash || '#home'));
+            switchTab(window.location.hash || '#home');
+
+
+            // --- DATA MANAGEMENT (localStorage) ---
+            const initialData = {
+                home: {
+                    name: "Arafat Nill",
+                    taglines: ["Pixel Composer of Interfaces", "Frontend Developer", "UI/UX Enthusiast"],
+                    description: "I craft user interfaces with the spirit of poetry and logic. Bringing designs into forms you can feel on screen.",
+                    cv_url: "#",
+                    socials: {
+                        github: "#",
+                        linkedin: "#",
+                        instagram: "#",
+                        twitter: "#"
+                    }
+                },
+                skills: [
+                    { category: 'Frontend Development', items: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3'] },
+                    { category: 'Backend Development', items: ['Node.js', 'Python', 'PostgreSQL'] }
+                ],
+                experience: [
+                    {
+                        id: Date.now(),
+                        title: 'Senior Frontend Developer',
+                        company: 'Tech Innovators Inc.',
+                        dates: 'Jan 2023 - Present',
+                        responsibilities: [
+                            'Led the development of a new client-facing dashboard using React and TypeScript.',
+                            'Improved application performance by 30% through code splitting and lazy loading.',
+                            'Mentored junior developers and conducted code reviews to ensure quality.'
+                        ]
+                    }
+                ],
+                projects: [
+                    {
+                        id: Date.now(),
+                        title: 'News & Magazine',
+                        description: 'A full-featured e-commerce site with product listings, cart, and payment integration.',
+                        image: 'https://placehold.co/600x400/DBEAFE/1E3A8A?text=Project+1',
+                        tech: ['React', 'Node.js', 'Express'],
+                        code_link: '#',
+                        demo_link: '#'
+                    }
+                ]
+            };
+
+            function getPortfolioData() {
+                const data = localStorage.getItem('portfolioData');
+                return data ? JSON.parse(data) : initialData;
+            }
+
+            function savePortfolioData(data) {
+                localStorage.setItem('portfolioData', JSON.stringify(data));
+                alert('Changes saved successfully!');
+            }
+
+            let portfolioData = getPortfolioData();
+            
+            // --- RENDER FUNCTIONS ---
+            
+            // Home Renderer
+            function renderHome() {
+                const home = portfolioData.home;
+                document.getElementById('home-name').value = home.name || '';
+                document.getElementById('home-taglines').value = (home.taglines || []).join('\n');
+                document.getElementById('home-description').value = home.description || '';
+                document.getElementById('home-cv-url').value = home.cv_url || '#';
+                document.getElementById('social-github').value = home.socials?.github || '#';
+                document.getElementById('social-linkedin').value = home.socials?.linkedin || '#';
+                document.getElementById('social-instagram').value = home.socials?.instagram || '#';
+                document.getElementById('social-twitter').value = home.socials?.twitter || '#';
+            }
+            
+            // Skills Renderer
+            function renderSkills() {
+                const skillsList = document.getElementById('skills-list');
+                skillsList.innerHTML = '';
+                if (portfolioData.skills.length === 0) {
+                    skillsList.innerHTML = `<p class="text-slate-500">No skills added yet.</p>`;
+                    return;
+                }
+                portfolioData.skills.forEach((skillCat, catIndex) => {
+                    const categoryDiv = document.createElement('div');
+                    categoryDiv.className = 'bg-slate-100 dark:bg-slate-700 p-4 rounded-lg';
+                    let skillsHTML = skillCat.items.map((item, itemIndex) => 
+                        `<span class="inline-flex items-center bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300 text-sm font-medium px-2.5 py-1 rounded-full">
+                            ${item}
+                            <button data-cat-index="${catIndex}" data-item-index="${itemIndex}" class="delete-skill-item-btn ml-2 text-red-500 hover:text-red-700">&times;</button>
+                        </span>`
+                    ).join(' ');
+                    
+                    categoryDiv.innerHTML = `
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg">${skillCat.category}</h3>
+                            <button data-cat-index="${catIndex}" class="delete-skill-category-btn text-red-500 hover:text-red-700 font-bold p-1 rounded-full text-xs">DELETE CATEGORY</button>
+                        </div>
+                        <div class="flex flex-wrap gap-2">${skillsHTML}</div>
+                    `;
+                    skillsList.appendChild(categoryDiv);
+                });
+            }
+
+            // Experience Renderer
+            function renderExperience() {
+                const list = document.getElementById('experience-list');
+                list.innerHTML = '';
+                 if (portfolioData.experience.length === 0) {
+                    list.innerHTML = `<p class="text-slate-500">No experience added yet.</p>`;
+                    return;
+                }
+                portfolioData.experience.forEach((exp, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-slate-100 dark:bg-slate-700 p-4 rounded-lg';
+                    const responsibilitiesHTML = `<ul>${exp.responsibilities.map(r => `<li class="list-disc list-inside">${r}</li>`).join('')}</ul>`;
+                    div.innerHTML = `
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg">${exp.title}</h3>
+                                <p class="font-medium text-slate-600 dark:text-slate-400">${exp.company}</p>
+                                <p class="text-sm text-slate-500">${exp.dates}</p>
+                                <div class="mt-2 text-sm">${responsibilitiesHTML}</div>
+                            </div>
+                            <button data-index="${index}" class="delete-experience-btn text-red-500 hover:text-red-700 font-semibold p-2">DELETE</button>
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+            }
+
+            // Projects Renderer
+            function renderProjects() {
+                const list = document.getElementById('projects-list');
+                list.innerHTML = '';
+                 if (portfolioData.projects.length === 0) {
+                    list.innerHTML = `<p class="text-slate-500 md:col-span-3">No projects added yet.</p>`;
+                    return;
+                }
+                portfolioData.projects.forEach((proj, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden shadow-sm';
+                    const techHTML = proj.tech.map(t => `<span class="text-xs font-semibold bg-cyan-100/50 text-cyan-800 dark:bg-slate-800 dark:text-cyan-400 py-1 px-2 rounded-full">${t}</span>`).join(' ');
+                    div.innerHTML = `
+                        <img src="${proj.image}" alt="${proj.title}" class="w-full h-40 object-cover">
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg">${proj.title}</h3>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 my-2 h-16 overflow-y-auto">${proj.description}</p>
+                            <div class="flex flex-wrap gap-2 my-3">${techHTML}</div>
+                             <div class="flex justify-between items-center mt-4">
+                                <div>
+                                    <a href="${proj.code_link}" target="_blank" class="text-sm hover:text-blue-500">Code</a> | 
+                                    <a href="${proj.demo_link}" target="_blank" class="text-sm hover:text-blue-500">Demo</a>
+                                </div>
+                                <button data-index="${index}" class="delete-project-btn text-red-500 hover:text-red-700 font-semibold p-2">DELETE</button>
+                            </div>
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+            }
+
+            // Messages Renderer
+            function renderMessages() {
+                const messages = JSON.parse(localStorage.getItem('portfolioMessages')) || [];
+                const list = document.getElementById('messages-list');
+                const badge = document.getElementById('message-count-badge');
+                list.innerHTML = '';
+
+                if (messages.length > 0) {
+                    badge.textContent = messages.length;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                    list.innerHTML = `<div class="text-center py-10 bg-white dark:bg-slate-800 rounded-lg shadow-md">
+                        <i class="ri-mail-forbid-line text-5xl text-slate-400"></i>
+                        <p class="mt-4 text-slate-500">You have no new messages.</p>
+                    </div>`;
+                    return;
+                }
+                
+                messages.forEach((msg, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'bg-white dark:bg-slate-800 p-4 rounded-lg shadow-md';
+                    div.innerHTML = `
+                        <div class="flex justify-between items-start">
+                             <div>
+                                <p class="font-bold">${msg.name} <span class="font-normal text-slate-500">&lt;${msg.email}&gt;</span></p>
+                                <p class="text-xs text-slate-400">${new Date(msg.timestamp).toLocaleString()}</p>
+                                <p class="mt-3">${msg.message}</p>
+                            </div>
+                            <button data-index="${index}" class="delete-message-btn text-red-500 hover:text-red-700 p-2"><i class="ri-delete-bin-line text-xl"></i></button>
+                        </div>
+                    `;
+                    list.appendChild(div);
+                });
+            }
+
+
+            // --- FORM SUBMISSIONS & EVENT HANDLERS ---
+            
+            // Home Form
+            document.getElementById('home-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                portfolioData.home.name = document.getElementById('home-name').value;
+                portfolioData.home.taglines = document.getElementById('home-taglines').value.split('\n').filter(t => t.trim() !== '');
+                portfolioData.home.description = document.getElementById('home-description').value;
+                portfolioData.home.cv_url = document.getElementById('home-cv-url').value;
+                portfolioData.home.socials = {
+                    github: document.getElementById('social-github').value,
+                    linkedin: document.getElementById('social-linkedin').value,
+                    instagram: document.getElementById('social-instagram').value,
+                    twitter: document.getElementById('social-twitter').value,
+                };
+                savePortfolioData(portfolioData);
+            });
+
+            // Skill Form
+            document.getElementById('skill-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const category = document.getElementById('skill-category').value.trim();
+                const name = document.getElementById('skill-name').value.trim();
+                if (!category || !name) {
+                    alert('Please fill in both category and skill name.');
+                    return;
+                }
+
+                let categoryExists = portfolioData.skills.find(c => c.category === category);
+                if (categoryExists) {
+                    categoryExists.items.push(name);
+                } else {
+                    portfolioData.skills.push({ category: category, items: [name] });
+                }
+                savePortfolioData(portfolioData);
+                renderSkills();
+                e.target.reset();
+            });
+            
+             // Experience Form
+            document.getElementById('experience-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newExp = {
+                    id: Date.now(),
+                    title: document.getElementById('exp-title').value,
+                    company: document.getElementById('exp-company').value,
+                    dates: document.getElementById('exp-dates').value,
+                    responsibilities: document.getElementById('exp-responsibilities').value.split('\n').filter(r => r.trim() !== '')
+                };
+                 if(!newExp.title || !newExp.company) {
+                    alert('Title and Company are required.');
+                    return;
+                }
+                portfolioData.experience.unshift(newExp);
+                savePortfolioData(portfolioData);
+                renderExperience();
+                e.target.reset();
+            });
+
+             // Project Form
+            document.getElementById('project-form').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const newProj = {
+                    id: Date.now(),
+                    title: document.getElementById('proj-title').value,
+                    image: document.getElementById('proj-image').value,
+                    description: document.getElementById('proj-description').value,
+                    tech: document.getElementById('proj-tech').value.split(',').map(t => t.trim()),
+                    code_link: document.getElementById('proj-code-link').value,
+                    demo_link: document.getElementById('proj-demo-link').value
+                };
+                if(!newProj.title || !newProj.description) {
+                    alert('Title and Description are required.');
+                    return;
+                }
+                portfolioData.projects.unshift(newProj);
+                savePortfolioData(portfolioData);
+                renderProjects();
+                e.target.reset();
+            });
+
+            // Event Delegation for Delete Buttons
+            document.body.addEventListener('click', (e) => {
+                // Delete Skill Item
+                if (e.target.classList.contains('delete-skill-item-btn')) {
+                    const catIndex = e.target.dataset.catIndex;
+                    const itemIndex = e.target.dataset.itemIndex;
+                    portfolioData.skills[catIndex].items.splice(itemIndex, 1);
+                    savePortfolioData(portfolioData);
+                    renderSkills();
+                }
+                // Delete Skill Category
+                if (e.target.classList.contains('delete-skill-category-btn')) {
+                    const catIndex = e.target.dataset.catIndex;
+                    portfolioData.skills.splice(catIndex, 1);
+                    savePortfolioData(portfolioData);
+                    renderSkills();
+                }
+                 // Delete Experience
+                if (e.target.classList.contains('delete-experience-btn')) {
+                    if(!confirm('Are you sure you want to delete this experience?')) return;
+                    const index = e.target.dataset.index;
+                    portfolioData.experience.splice(index, 1);
+                    savePortfolioData(portfolioData);
+                    renderExperience();
+                }
+                 // Delete Project
+                if (e.target.classList.contains('delete-project-btn')) {
+                    if(!confirm('Are you sure you want to delete this project?')) return;
+                    const index = e.target.dataset.index;
+                    portfolioData.projects.splice(index, 1);
+                    savePortfolioData(portfolioData);
+                    renderProjects();
+                }
+                // Delete one message
+                if(e.target.closest('.delete-message-btn')) {
+                    if(!confirm('Are you sure you want to delete this message?')) return;
+                    const button = e.target.closest('.delete-message-btn');
+                    const index = button.dataset.index;
+                    let messages = JSON.parse(localStorage.getItem('portfolioMessages')) || [];
+                    messages.splice(index, 1);
+                    localStorage.setItem('portfolioMessages', JSON.stringify(messages));
+                    renderMessages();
+                }
+            });
+
+            // Delete All Messages
+            document.getElementById('delete-all-messages').addEventListener('click', () => {
+                if(confirm('Are you sure you want to delete ALL messages? This cannot be undone.')){
+                    localStorage.removeItem('portfolioMessages');
+                    renderMessages();
+                }
+            });
+
+            // --- INITIAL RENDER ---
+            renderHome();
+            renderSkills();
+            renderExperience();
+            renderProjects();
+            renderMessages();
+        });
+    </script>
+  </body>
+</html>

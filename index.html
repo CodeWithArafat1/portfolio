@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arafat - Portfolio</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+      .float-icon {
+        animation: float 6s ease-in-out infinite;
+      }
+      @keyframes float {
+        0% {
+          transform: translatey(0px);
+        }
+        50% {
+          transform: translatey(-15px);
+        }
+        100% {
+          transform: translatey(0px);
+        }
+      }
+      /* Typing effect cursor */
+      .typing-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 1.8rem;
+        background-color: #3b82f6; /* blue-500 */
+        animation: blink 0.7s infinite;
+      }
+      .dark .typing-cursor {
+        background-color: #60a5fa; /* blue-400 */
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body
+    class="bg-white text-slate-900 dark:bg-black dark:text-white transition-colors duration-300"
+  >
+    <div class="min-h-screen">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-28">
+        <header
+          class="fixed top-0 left-0 w-full z-30 py-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm shadow-md transition-transform duration-300 ease-in-out"
+        >
+          <nav
+            class="container mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center"
+          >
+            <a href="#" class="text-xl font-bold text-black dark:text-white"
+              >My Portfolio</a
+            >
+
+            <div class="flex items-center space-x-4">
+              <div
+                class="hidden lg:flex items-center space-x-8 text-slate-600 dark:text-slate-300 font-medium"
+              >
+                <a href="#home" class="hover:text-black dark:hover:text-white"
+                  >Home</a
+                >
+                <a href="#skills" class="hover:text-black dark:hover:text-white"
+                  >Skills</a
+                >
+                <a
+                  href="#experience"
+                  class="hover:text-black dark:hover:text-white"
+                  >Experience</a
+                >
+                <a
+                  href="#projects"
+                  class="hover:text-black dark:hover:text-white"
+                  >Projects</a
+                >
+                <a
+                  href="#contact"
+                  class="hover:text-black dark:hover:text-white"
+                  >Contact</a
+                >
+              </div>
+              <div class="lg:hidden">
+                <button id="menu-btn" class="text-slate-900 dark:text-white">
+                  <i id="menu-icon" class="ri-menu-line text-2xl"></i>
+                </button>
+              </div>
+            </div>
+          </nav>
+          <div
+            id="mobile-menu"
+            class="hidden lg:hidden mt-4 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-slate-100 dark:border-slate-800"
+          >
+            <a
+              href="#home"
+              class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded"
+              >Home</a
+            >
+            <a
+              href="#skills"
+              class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded"
+              >Skills</a
+            >
+            <a
+              href="#experience"
+              class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded"
+              >Experience</a
+            >
+            <a
+              href="#projects"
+              class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="block py-2 px-4 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800 rounded"
+              >Contact</a
+            >
+          </div>
+        </header>
+
+        <main id="home" class="relative overflow-hidden py-16 lg:py-24">
+          <div class="absolute inset-0 z-0">
+            <div
+              class="absolute top-1/2 left-1/2 w-[60vw] h-[60vh] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle_farthest-side,rgba(29,78,216,0.1),rgba(255,255,255,0))] dark:bg-[radial-gradient(circle_farthest-side,rgba(29,78,216,0.15),rgba(255,255,255,0))] blur-3xl"
+            ></div>
+            <div
+              class="absolute inset-0"
+              style="
+                background-image: linear-gradient(
+                    to right,
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px
+                  ),
+                  linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.05) 1px,
+                    transparent 1px
+                  );
+                background-size: 40px 40px;
+              "
+            ></div>
+            <div
+              class="absolute inset-0 hidden dark:block"
+              style="
+                background-image: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0.05) 1px,
+                    transparent 1px
+                  ),
+                  linear-gradient(
+                    to bottom,
+                    rgba(255, 255, 255, 0.05) 1px,
+                    transparent 1px
+                  );
+                background-size: 40px 40px;
+              "
+            ></div>
+          </div>
+
+          <div
+            class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          >
+            <div class="text-center lg:text-left" data-aos="fade-right">
+              <h1
+                class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
+              >
+                Hello
+              </h1>
+              <h1
+                class="text-5xl md:text-6xl font-extrabold text-slate-900 dark:text-white leading-tight"
+              >
+                I'm Arafat Nill
+              </h1>
+              <p
+                class="mt-2 text-2xl md:text-3xl font-semibold text-slate-600 dark:text-slate-300 h-12 md:h-14"
+              >
+                <span id="typing-effect"></span
+                ><span class="typing-cursor"></span>
+              </p>
+              <p
+                class="mt-6  text-base text-slate-500 dark:text-slate-400 max-w-lg mx-auto lg:mx-0"
+              >
+                I craft user interfaces with the spirit of poetry and logic.
+                Bringing designs into forms you can feel on screen.
+              </p>
+
+              <div
+                class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
+              >
+                <p class="text-slate-600 dark:text-slate-300 font-medium">
+                  Follow me on:
+                </p>
+                <a
+                  href="#"
+                  class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  ><i class="ri-github-fill text-2xl"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  ><i class="ri-linkedin-box-fill text-2xl"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  ><i class="ri-instagram-line text-2xl"></i
+                ></a>
+                <a
+                  href="#"
+                  class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                  ><i class="ri-twitter-x-line text-2xl"></i
+                ></a>
+              </div>
+
+              <div
+                class="mt-8 flex items-center justify-center lg:justify-start space-x-4"
+              >
+                <a
+                  href="#"
+                  class="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition duration-300 cursor-pointer"
+                >
+                  <i class="ri-download-2-line mr-2"></i> Download CV
+                </a>
+                <a
+                  href="#contact"
+                  class="bg-transparent text-slate-700 dark:text-slate-200 px-6 py-3 rounded-lg font-semibold border border-slate-300 dark:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition duration-300 cursor-pointer"
+                >
+                  Contact Me
+                </a>
+              </div>
+            </div>
+
+            <div
+              class="relative flex items-center justify-center order-first lg:order-last"
+              data-aos="fade-left"
+            >
+              <div class="relative w-72 h-72 lg:w-96 lg:h-96">
+                <img
+                  src="./assets/hero.jpg"
+                  alt="Profile picture of Arafat Nill"
+                  onerror="this.onerror=null;this.src='https://placehold.co/400x400/E2E8F0/4A5568?text=Image+Not+Found';"
+                  class="rounded-full w-full h-full object-cover shadow-xl border-8 border-white dark:border-slate-700"
+                />
+                <div
+                  class="float-icon absolute top-8 left-0 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                  style="animation-delay: 0.2s"
+                >
+                  <i class="ri-css3-fill text-blue-500 text-3xl"></i>
+                </div>
+                <div
+                  class="float-icon absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                >
+                  <i class="ri-html5-fill text-3xl text-red-500"></i>
+                </div>
+                <div
+                  class="float-icon absolute top-1/2 left-0 transform -translate-x-1/2 -translate-y-1/2 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                  style="animation-delay: 0.4s"
+                >
+                  <i class="ri-tailwind-css-fill text-blue-400 text-3xl"></i>
+                </div>
+                <div
+                  class="float-icon absolute bottom-8 left-4 transform -translate-x-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                  style="animation-delay: 0.6s"
+                >
+                  <i class="ri-javascript-fill text-yellow-400 text-3xl"></i>
+                </div>
+                <div
+                  class="float-icon absolute bottom-0 right-0 transform translate-x-1/4 translate-y-1/4 bg-white p-4 rounded-full shadow-lg w-12 h-12 flex justify-center items-center"
+                >
+                  <i class="ri-reactjs-fill text-cyan-400 text-3xl"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <section id="skills" class="py-20 lg:py-32">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2
+              class="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white"
+            >
+              My Skills
+            </h2>
+            <p
+              class="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto"
+            >
+              Here's a showcase of the tools and technologies I'm proficient in,
+              categorized for clarity.
+            </p>
+          </div>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+          >
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-blue-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-code-s-slash-line text-blue-500 dark:text-blue-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Frontend Development
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >React</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Next.js</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >TypeScript</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >HTML5</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >CSS3</span
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-green-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-server-line text-green-500 dark:text-green-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Backend Development
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Node.js</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Python</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >PostgreSQL</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >MongoDB</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >REST APIs</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >GraphQL</span
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-purple-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-palette-line text-purple-500 dark:text-purple-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  UI/UX Design
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Figma</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Responsive Design</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Wireframing</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Prototyping</span
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-sky-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-cloud-line text-sky-500 dark:text-sky-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Cloud & DevOps
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >AWS</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Docker</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >CI/CD</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Kubernetes</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Git</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Linux</span
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-orange-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-tools-line text-orange-500 dark:text-orange-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Tools & Technologies
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >VS Code</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Jest</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Webpack</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Redux</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Firebase</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Vercel</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Vite</span
+                >
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 transition-all duration-300 hover:border-yellow-500 hover:-translate-y-1 shadow-md hover:shadow-xl dark:shadow-lg"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="flex items-center mb-4">
+                <i
+                  class="ri-pencil-ruler-2-line text-yellow-500 dark:text-yellow-400 text-2xl mr-3"
+                ></i>
+                <h3 class="text-xl font-bold text-slate-900 dark:text-white">
+                  Creative Skills
+                </h3>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >UI Animation</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >SVG Animation</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >3D Modeling</span
+                >
+                <span
+                  class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-3 py-1 rounded-full"
+                  >Motion Graphics</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" class="py-20 lg:py-32">
+          <div class="text-center mb-16" data-aos="fade-up">
+            <h2
+              class="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white"
+            >
+              Work Experience
+            </h2>
+            <p
+              class="text-slate-500 dark:text-slate-400 mt-4 max-w-2xl mx-auto"
+            >
+              A timeline of my professional journey and key contributions.
+            </p>
+          </div>
+
+          <div class="relative max-w-4xl mx-auto px-4 sm:px-0">
+            <div
+              class="absolute h-full w-0.5 bg-slate-200 dark:bg-slate-700 left-4 md:left-1/2 md:-translate-x-1/2"
+            ></div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:text-right">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-0 md:pr-8">
+                    <p class="font-semibold text-blue-500 dark:text-blue-400">
+                      Jan 2023 - Present
+                    </p>
+                    <h3
+                      class="text-2xl font-bold text-slate-900 dark:text-white mt-1"
+                    >
+                      Senior Frontend Developer
+                    </h3>
+                    <p class="text-slate-500 dark:text-slate-400">
+                      Tech Innovators Inc.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                  <div
+                    class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 ml-12 md:ml-0"
+                  >
+                    <ul
+                      class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2"
+                    >
+                      <li>
+                        Led the development of a new client-facing dashboard
+                        using React and TypeScript.
+                      </li>
+                      <li>
+                        Improved application performance by 30% through code
+                        splitting and lazy loading.
+                      </li>
+                      <li>
+                        Mentored junior developers and conducted code reviews to
+                        ensure quality.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:order-last md:text-left">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-8">
+                    <p class="font-semibold text-blue-500 dark:text-blue-400">
+                      Jun 2021 - Dec 2022
+                    </p>
+                    <h3
+                      class="text-2xl font-bold text-slate-900 dark:text-white mt-1"
+                    >
+                      Mid-Level Developer
+                    </h3>
+                    <p class="text-slate-500 dark:text-slate-400">
+                      Creative Solutions Co.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0 md:order-first">
+                  <div
+                    class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 ml-12 md:ml-0 md:mr-8"
+                  >
+                    <ul
+                      class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2"
+                    >
+                      <li>
+                        Developed and maintained features for an e-commerce
+                        platform using Next.js.
+                      </li>
+                      <li>
+                        Collaborated with UI/UX designers to implement
+                        pixel-perfect, responsive designs.
+                      </li>
+                      <li>
+                        Integrated various third-party APIs for payment and
+                        shipping services.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative mb-12" data-aos="fade-up">
+              <div class="md:grid md:grid-cols-2 md:gap-8 md:items-start">
+                <div class="md:text-right">
+                  <div
+                    class="absolute left-4 top-1 w-4 h-4 bg-blue-500 rounded-full border-4 border-white dark:border-slate-900 md:left-1/2 md:-translate-x-1/2"
+                  ></div>
+
+                  <div class="pl-12 md:pl-0 md:pr-8">
+                    <p class="font-semibold text-blue-500 dark:text-blue-400">
+                      Mar 2020 - May 2021
+                    </p>
+                    <h3
+                      class="text-2xl font-bold text-slate-900 dark:text-white mt-1"
+                    >
+                      Junior Developer
+                    </h3>
+                    <p class="text-slate-500 dark:text-slate-400">
+                      Web Wizards LLC
+                    </p>
+                  </div>
+                </div>
+
+                <div class="mt-4 md:mt-0">
+                  <div
+                    class="bg-white dark:bg-slate-900/70 p-6 rounded-xl border border-slate-200 dark:border-slate-800 ml-12 md:ml-0"
+                  >
+                    <ul
+                      class="list-disc list-inside text-slate-600 dark:text-slate-400 space-y-2"
+                    >
+                      <li>
+                        Assisted in building responsive websites using HTML,
+                        CSS, and JavaScript.
+                      </li>
+                      <li>
+                        Learned React and contributed to component library
+                        development.
+                      </li>
+                      <li>
+                        Fixed bugs and performed maintenance on existing client
+                        websites.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" class="py-20 lg:py-32">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2
+              class="text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white"
+            >
+              My Projects
+            </h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-4">
+              A selection of my recent work
+            </p>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div
+              class="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group shadow-md"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <img
+                src="./assets/p1.png"
+                alt="Project 1"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found';"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-bold mb-2 text-slate-900 dark:text-white"
+                >
+                  News & Magazine
+                </h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                  A full-featured e-commerce site with product listings, cart,
+                  and payment integration.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs font-semibold bg-cyan-100/50 text-cyan-800 dark:bg-slate-800 dark:text-cyan-400 py-1 px-2 rounded-full"
+                    >React</span
+                  >
+                  <span
+                    class="text-xs font-semibold bg-green-100/50 text-green-800 dark:bg-slate-800 dark:text-green-400 py-1 px-2 rounded-full"
+                    >Node.js</span
+                  >
+                  <span
+                    class="text-xs font-semibold bg-yellow-100/50 text-yellow-800 dark:bg-slate-800 dark:text-yellow-400 py-1 px-2 rounded-full"
+                    >Express</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-github-fill mr-1"></i> Code</a
+                  >
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-external-link-line mr-1"></i> Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group shadow-md"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <img
+                src="./assets/p2.png"
+                alt="Project 2"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found';"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-bold mb-2 text-slate-900 dark:text-white"
+                >
+                  Academy - Online Course
+                </h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                  A personal portfolio website to showcase skills and projects,
+                  built with a modern tech stack.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs font-semibold bg-cyan-100/50 text-cyan-800 dark:bg-slate-800 dark:text-cyan-400 py-1 px-2 rounded-full"
+                    >Next.js</span
+                  >
+                  <span
+                    class="text-xs font-semibold bg-sky-100/50 text-sky-800 dark:bg-slate-800 dark:text-cyan-500 py-1 px-2 rounded-full"
+                    >Tailwind CSS</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-github-fill mr-1"></i> Code</a
+                  >
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-external-link-line mr-1"></i> Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div
+              class="bg-white dark:bg-slate-900 rounded-lg overflow-hidden border border-slate-200 dark:border-slate-800 group shadow-md"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <img
+                src="./assets/p3.png"
+                alt="Project 3"
+                onerror="this.onerror=null;this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found';"
+                class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div class="p-6">
+                <h3
+                  class="text-xl font-bold mb-2 text-slate-900 dark:text-white"
+                >
+                  Payment Project App
+                </h3>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-4">
+                  A web application for managing tasks with features like
+                  drag-and-drop and user authentication.
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="text-xs font-semibold bg-pink-100/50 text-pink-800 dark:bg-slate-800 dark:text-pink-500 py-1 px-2 rounded-full"
+                    >Figma</span
+                  >
+                  <span
+                    class="text-xs font-semibold bg-cyan-100/50 text-cyan-800 dark:bg-slate-800 dark:text-cyan-400 py-1 px-2 rounded-full"
+                    >React</span
+                  >
+                  <span
+                    class="text-xs font-semibold bg-green-100/50 text-green-800 dark:bg-slate-800 dark:text-green-400 py-1 px-2 rounded-full"
+                    >MongoDB</span
+                  >
+                </div>
+                <div class="flex items-center space-x-4">
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-github-fill mr-1"></i> Code</a
+                  >
+                  <a
+                    href="#"
+                    class="text-slate-500 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-500 transition-colors"
+                    ><i class="ri-external-link-line mr-1"></i> Live Demo</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" class="py-20 lg:py-32" data-aos="fade-up">
+          <div class="grid lg:grid-cols-2 gap-16 items-start">
+            <div class="lg:pr-8">
+              <h2
+                class="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-white mb-3"
+              >
+                Get in Touch
+              </h2>
+              <p class="text-slate-500 dark:text-slate-400 mb-12">
+                Have a question or want to work together? Drop me a message!
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <i
+                    class="ri-mail-fill text-xl text-purple-500 dark:text-purple-400"
+                  ></i>
+                  <span class="text-slate-600 dark:text-slate-300"
+                    >arafatnill2.0@gmail.com</span
+                  >
+                </div>
+                <div class="flex items-center gap-4">
+                  <i
+                    class="ri-map-pin-fill text-xl text-purple-500 dark:text-purple-400"
+                  ></i>
+                  <span class="text-slate-600 dark:text-slate-300"
+                    >Bagha, Rajshahi</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="bg-white dark:bg-slate-900 p-8 rounded-xl shadow-2xl border border-slate-200 dark:border-slate-800"
+            >
+              <div id="success-message" class="hidden text-center py-10">
+                <h3
+                  class="text-2xl font-bold text-green-600 dark:text-green-400 mb-4"
+                >
+                  Message Sent!
+                </h3>
+                <p class="text-slate-600 dark:text-slate-300">
+                  Thank you for reaching out. I will get back to you soon.
+                </p>
+              </div>
+
+              <form
+                id="contact-form"
+                action="#"
+                method="POST"
+                class="space-y-6"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  class="outline-0 block w-full p-4 bg-slate-100 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder-slate-400"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  class="outline-0 block w-full p-4 bg-slate-100 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder-slate-400"
+                  placeholder="Your Email"
+                  required
+                />
+                <textarea
+                  name="message"
+                  rows="5"
+                  class="outline-0 block w-full p-4 bg-slate-100 border border-slate-300 rounded-lg text-slate-800 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition dark:bg-slate-800 dark:border-slate-700 dark:text-slate-200 dark:placeholder-slate-400"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+                <button
+                  type="submit"
+                  class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition duration-300 cursor-pointer"
+                >
+                  Send Message
+                  <i class="ri-send-plane-fill"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <footer class="py-8 border-t border-slate-200 dark:border-slate-800">
+          <div
+            class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+          >
+            <p class="text-center sm:text-left text-slate-500 text-sm">
+              &copy; 2025 Arafat Nill. All rights reserved.
+              <a href="./admin.html" class="hover:text-blue-500">Admin Panel</a>
+            </p>
+            <div class="flex items-center space-x-4">
+              <a
+                href="#"
+                class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                ><i class="ri-github-fill text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                ><i class="ri-linkedin-box-fill text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                ><i class="ri-instagram-line text-xl"></i
+              ></a>
+              <a
+                href="#"
+                class="text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white"
+                ><i class="ri-twitter-x-line text-xl"></i
+              ></a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+      // Navbar scroll behavior
+      const header = document.querySelector("header");
+      let lastScrollY = window.scrollY;
+
+      window.addEventListener("scroll", () => {
+        if (lastScrollY < window.scrollY && window.scrollY > 200) {
+          header.classList.add("-translate-y-full");
+        } else {
+          header.classList.remove("-translate-y-full");
+        }
+        lastScrollY = window.scrollY;
+      });
+
+      // Initialize AOS
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+
+      // Mobile Menu Script
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuIcon = document.getElementById("menu-icon");
+      const pageHeader = document.querySelector("header");
+
+      menuBtn.addEventListener("click", () => {
+        const isMenuOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+
+        if (!isMenuOpen) {
+          pageHeader.classList.add("bg-white/100", "dark:bg-black/100");
+          pageHeader.classList.remove("bg-white/90", "dark:bg-black/80");
+          menuIcon.classList.remove("ri-menu-line");
+          menuIcon.classList.add("ri-close-line");
+        } else {
+          pageHeader.classList.add("bg-white/90", "dark:bg-black/80");
+          pageHeader.classList.remove("bg-white/100", "dark:bg-black/100");
+          menuIcon.classList.remove("ri-close-line");
+          menuIcon.classList.add("ri-menu-line");
+        }
+      });
+
+      const navLinks = mobileMenu.querySelectorAll("a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuIcon.classList.remove("ri-close-line");
+          menuIcon.classList.add("ri-menu-line");
+          pageHeader.classList.add("bg-white/90", "dark:bg-black/80");
+          pageHeader.classList.remove("bg-white/100", "dark:bg-black/100");
+        });
+      });
+
+      // Contact Form Submission Script
+      const contactForm = document.getElementById("contact-form");
+      const successMessage = document.getElementById("success-message");
+      contactForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const messageData = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          subject: "No Subject", // Added default subject
+          message: formData.get("message"),
+          timestamp: new Date().toISOString(),
+        };
+
+        let messages =
+          JSON.parse(localStorage.getItem("portfolioMessages")) || [];
+        messages.unshift(messageData);
+        localStorage.setItem("portfolioMessages", JSON.stringify(messages));
+
+        contactForm.classList.add("hidden");
+        successMessage.classList.remove("hidden");
+
+        // Reset form after a delay to show the success message
+        setTimeout(() => {
+          contactForm.reset();
+          contactForm.classList.remove("hidden");
+          successMessage.classList.add("hidden");
+        }, 3000);
+      });
+
+      // Listen for changes in the OS theme
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          if (e.matches) {
+            document.documentElement.classList.add("dark");
+          } else {
+            document.documentElement.classList.remove("dark");
+          }
+        });
+
+      // Typing Effect Script
+      document.addEventListener("DOMContentLoaded", function () {
+        const typingElement = document.getElementById("typing-effect");
+        const words = [
+          "Pixel Composer of Interfaces",
+          "Frontend Developer",
+          "UI/UX Enthusiast",
+        ];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+          const currentWord = words[wordIndex];
+          if (isDeleting) {
+            typingElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            if (charIndex === 0) {
+              isDeleting = false;
+              wordIndex = (wordIndex + 1) % words.length;
+            }
+          } else {
+            typingElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            if (charIndex === currentWord.length) {
+              isDeleting = true;
+              setTimeout(type, 2000);
+              return;
+            }
+          }
+          const typingSpeed = isDeleting ? 50 : 150;
+          setTimeout(type, typingSpeed);
+        }
+        if (typingElement) type();
+      });
+    </script>
+  </body>
+</html>
